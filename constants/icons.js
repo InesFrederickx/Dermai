@@ -6,6 +6,9 @@ import emptyHeart from "../assets/icons/heart-empty.png";
 import fullHeart from "../assets/icons/heart-full.png";
 import openEye from "../assets/icons/eye-open.png";
 import closedEye from "../assets/icons/eye-close.png";
+import product from "../assets/icons/product.png";
+import scan from "../assets/icons/scan.png";
+import profile from "../assets/icons/profile.png";
 
 export default {
   home,
@@ -16,4 +19,7 @@ export default {
   fullHeart,
   openEye,
   closedEye,
+  product,
+  scan,
+  profile,
 };
