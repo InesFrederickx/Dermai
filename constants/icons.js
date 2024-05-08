@@ -9,6 +9,7 @@ import closedEye from "../assets/icons/eye-close.png";
 import product from "../assets/icons/product.png";
 import scan from "../assets/icons/scan.png";
 import profile from "../assets/icons/profile.png";
+import logo from "../assets/icons/logo.png";
 
 export default {
   home,
@@ -22,4 +23,5 @@ export default {
   product,
   scan,
   profile,
+  logo,
 };
