@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, Text, View, Image, ImageBackground } from "react-native";
-import { Link } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { icons } from "../constants";
 import CustomButton from "../components/CustomButton";
@@ -12,11 +12,11 @@ export default function App() {
       <SafeAreaView
         style={{ flex: 1, backgroundColor: "transparent", height: 100 }}
       >
-        <View className="w-full justify-between h-full px-8">
+        <View className="w-full justify-around min-h-[85vh] px-8">
           <View className="items-center mt-20">
             <Image
               source={icons.logo}
-              className="w-[140px] h-[100px]"
+              className="w-[150px] h-[110px]"
               resizeMode="contain"
             />
 
@@ -53,7 +53,9 @@ export default function App() {
           <View className="mb-10">
             <CustomButton
               title="Next"
-              handlePress={() => {}}
+              handlePress={() => {
+                router.push("/user-information");
+              }}
               containerStyles="w-full mt-7 flex-end"
             />
           </View>
