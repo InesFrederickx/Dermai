@@ -1,16 +1,28 @@
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, Text, View, Image, ImageBackground } from "react-native";
+import {
+  ScrollView,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  Dimensions,
+} from "react-native";
 import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { icons } from "../constants";
 import CustomButton from "../components/CustomButton";
-import { images } from "../constants";
+import images from "../constants/images";
 
 export default function App() {
+  const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
   return (
-    <ImageBackground source={images.gradientBackground} style={{ flex: 1 }}>
+    <ImageBackground
+      source={require("../assets/images/gradient.png")}
+      style={{ width: screenWidth, height: screenHeight }}
+      resizeMode="cover"
+    >
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: "transparent", height: 100 }}
+        style={{ flex: 1, backgroundColor: "#FBEFE3", height: 100 }}
       >
         <View className="w-full justify-around min-h-[85vh] px-8">
           <View className="items-center mt-20">

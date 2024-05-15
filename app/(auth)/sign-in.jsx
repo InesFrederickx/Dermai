@@ -1,12 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import React from "react";
+import { images } from "../../constants";
 
 const SignIn = () => {
-  return (
-    <View>
-      <Text>SignIn</Text>
-    </View>
-  );
+  return <ImageBackground source={images.gradientBackground}></ImageBackground>;
 };
 
 export default SignIn;

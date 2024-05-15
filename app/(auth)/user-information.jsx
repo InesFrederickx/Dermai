@@ -4,14 +4,18 @@ import {
   ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,
+  Pressable,
+  Platform,
+  TouchableOpacity,
 } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Dropdown } from "react-native-element-dropdown";
+import { router } from "expo-router";
 import { Picker } from "@react-native-picker/picker";
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 const UserInformation = () => {
   const [form, setForm] = useState({
@@ -20,27 +24,55 @@ const UserInformation = () => {
     gender: "",
   });
 
-  const navigateTo = () => {
-    if (form.name && form.birthday && form.gender) {
-      const userInfo = {
-        ...userInfo,
-        name: form.name,
-        birthday: form.birthday,
-        gender: form.gender,
-      };
-      setUserInfo(updatedUserInfo);
+  const [dateOfBirth, setDateOfBirth] = useState("");
 
-      navigation.navigate("sign-up", {
-        name: userInfo.name,
-        birthday: userInfo.birthday,
-        gender: userInfo.gender,
-      });
+  const [date, setDate] = useState(new Date());
+  const [showPicker, setShowPicker] = useState(false);
+
+  const toggleDatePicker = () => {
+    setShowPicker(!showPicker);
+  };
+
+  const onChange = ({ type }, selectedDate) => {
+    if (type == "set") {
+      const currentDate = selectedDate;
+      setDate(currentDate);
+
+      if (Platform.OS === "android") {
+        toggleDatePicker();
+        setDateOfBirth(currentDate.toDateString());
+      }
     } else {
-      alert("Please fill in all fields. :)");
+      toggleDatePicker();
     }
   };
 
-  const submit = () => {};
+  const confirmIOSDate = () => {
+    setDateOfBirth(date.toDateString());
+    toggleDatePicker();
+  };
+
+  // const navigateTo = () => {
+  //   if (form.name && form.birthday && form.gender) {
+  //     const userInfo = {
+  //       ...userInfo,
+  //       name: form.name,
+  //       birthday: form.birthday,
+  //       gender: form.gender,
+  //     };
+  //     setUserInfo(updatedUserInfo);
+
+  //     navigation.navigate("sign-up", {
+  //       name: userInfo.name,
+  //       birthday: userInfo.birthday,
+  //       gender: userInfo.gender,
+  //     });
+  //   } else {
+  //     alert("Please fill in all fields. :)");
+  //   }
+  // };
+
+  // const submit = () => {};
 
   return (
     <ImageBackground source={images.gradientBackground} style={{ flex: 1 }}>
@@ -58,13 +90,78 @@ const UserInformation = () => {
               otherStyles="mt-7"
             />
 
-            <FormField
-              title="Birthday"
-              value={form.birthday}
-              handleChangeText={(e) => setForm({ ...form, birthday: e })}
-              otherStyles="mt-7"
-              keyboardType="birthdate-full"
-            />
+            <View>
+              <Text className="text-base text-secondary font-avregular mt-[20px]">
+                Birthday
+              </Text>
+
+              {showPicker && (
+                <DateTimePicker
+                  mode="date"
+                  display="spinner"
+                  value={date}
+                  onChange={onChange}
+                  style={{ height: 120, marginTop: -10 }}
+                  maximumDate={new Date()}
+                  minimumDate={new Date(1930, 1, 1)}
+                />
+              )}
+
+              {showPicker && Platform.OS === "ios" && (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <TouchableOpacity
+                    style={{ paddingHorizontal: 20 }}
+                    onPress={toggleDatePicker}
+                  >
+                    <Text
+                      styles={{
+                        fontSize: 14,
+                        fontWeight: "500",
+                        color: "secondary",
+                      }}
+                    >
+                      Cancel
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{ paddingHorizontal: 20 }}
+                    onPress={confirmIOSDate}
+                  >
+                    <Text
+                      styles={{
+                        fontSize: 14,
+                        fontWeight: "500",
+                        color: "secondary",
+                      }}
+                    >
+                      Confirm
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+              {!showPicker && (
+                <Pressable onPress={toggleDatePicker}>
+                  <FormField
+                    value={dateOfBirth}
+                    handleChangeText={(e) =>
+                      setForm({ ...form, dateOfBirth: e })
+                    }
+                    otherStyles="mt-7"
+                    placeholder="MM/DD/YYYY"
+                    placeholderTextColor="#A0A3BD"
+                    editable={false}
+                    onPressIn={toggleDatePicker}
+                    onChangeText={setDateOfBirth}
+                  />
+                </Pressable>
+              )}
+            </View>
 
             <View style={{ marginTop: 7 }}>
               <Text className="text-base text-secondary font-avregular">
@@ -85,8 +182,10 @@ const UserInformation = () => {
 
             <CustomButton
               title="Next"
-              handlePress={navigateTo}
-              conrainerStyles="mt-7"
+              handlePress={() => {
+                router.push("/sign-in");
+              }}
+              containerStyles="mt-7"
             />
           </View>
         </SafeAreaView>
