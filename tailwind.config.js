@@ -4,14 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FEFCFB",
-        "gradient-start": "#ffffff",
-        "gradient-end": "#FCEDE7",
+        primary: {
+          DEFAULT: "#F4EEE4",
+        },
         secondary: {
-          DEFAULT: "#44402F",
+          DEFAULT: "#2B4735",
+        },
+        orange: {
+          DEFAULT: "#F28C2F",
         },
         pink: {
-          DEFAULT: "#FCEDE7",
+          DEFAULT: "#E2A1AE",
         },
       },
       fontFamily: {

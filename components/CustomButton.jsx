@@ -17,7 +17,7 @@ const CustomButton = ({
       }`}
       disables={isLoading}
     >
-      <Text className={`text-secondary font-avbold text-xl ${textStyles}`}>
+      <Text className={`text-secondary font-avbold text-[26px] ${textStyles}`}>
         {title}
       </Text>
     </TouchableOpacity>

@@ -1,5 +1,6 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
+import { icons } from "../constants";
 
 const FormField = ({
   title,
@@ -9,18 +10,33 @@ const FormField = ({
   otherStyles,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   return (
     <View className={`space-y-2 ${otherStyles}`}>
       <Text className="text-base text-secondary font-avregular">{title}</Text>
-      <View className=" border-2 border-secondary w-full h-16 px-4 bg-primary rounded-[100px] focus:border-secondary items-center flex-row">
+      <View
+        className={`w-full h-16 px-4 bg-white rounded-[100px] ${
+          isFocused ? "border-orange" : ""
+        } items-center flex-row`}
+      >
         <TextInput
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           className="flex-1 text-secondary font-avbold text-base"
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#7b7b8b"
           onChangeText={handleChangeText}
           {...props}
+          secureTextEntry={title === "Password" && !showPassword}
         />
+
+        {title === "Password" && (
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Image source={!showPassword ? icons.openEye : icons.closedEye} />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
