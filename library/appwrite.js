@@ -1,13 +1,29 @@
-import { Client, Account, ID, Avatars, Databases } from "react-native-appwrite";
+import {
+  Client,
+  Account,
+  ID,
+  Avatars,
+  Databases,
+  Storage,
+} from "react-native-appwrite";
+
+import {
+  ENDPOINT,
+  PLATFORM,
+  PROJECT_ID,
+  DATABASE_ID,
+  USER_COLLECTION_ID,
+  IMAGE_COLLECTION_ID,
+  STORAGE_ID,
+} from "@env";
 
 export const config = {
-  endpoint: "https://cloud.appwrite.io/v1",
-  platform: "com.dippsauce.dermai",
-  projectId: "6652f7a300211a3a7dab",
-  databaseId: "6652fa8100246bce3ea5",
-  userCollectionId: "6652faaa00307eb08655",
-  imageCollectionId: "6652fadd0033f910b0cc",
-  storageId: "665320c50036ffa8f457",
+  endpoint: ENDPOINT,
+  platform: PLATFORM,
+  projectId: PROJECT_ID,
+  databaseId: DATABASE_ID,
+  userCollectionId: USER_COLLECTION_ID,
+  storageId: STORAGE_ID,
 };
 
 const client = new Client();
@@ -33,8 +49,6 @@ export const createUser = async (email, password, username) => {
     if (!newAccount) throw Error;
 
     const avatarUrl = avatars.getInitials(username);
-
-    await signIn(email, password);
 
     const newUser = await databases.createDocument(
       config.databaseId,
@@ -64,3 +78,24 @@ export async function signIn(email, password) {
     throw new Error(error);
   }
 }
+
+const deleteAccount = async () => {
+  try {
+    let response = await account.delete();
+    console.log(response);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const fetchUsername = async (userId) => {
+  try {
+    const userDocument = await databases.getDocument(
+      config.userCollectionId,
+      userId
+    );
+    return userDocument.username; // Replace 'username' with the actual key for the username in your database
+  } catch (error) {
+    console.error(error);
+  }
+};

@@ -187,7 +187,7 @@ const UserInformation = () => {
           <CustomButton
             title="Next"
             handlePress={() => {
-              router.push("/sign-in");
+              router.push("/sign-up");
             }}
             containerStyles="mt-7"
           />

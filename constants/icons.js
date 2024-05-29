@@ -10,6 +10,7 @@ import product from "../assets/icons/product.png";
 import scan from "../assets/icons/scan.png";
 import profile from "../assets/icons/profile.png";
 import logo from "../assets/icons/logo.png";
+import logo_titel from "../assets/icons/logo_titel.png";
 
 export default {
   home,
@@ -24,4 +25,5 @@ export default {
   scan,
   profile,
   logo,
+  logo_titel,
 };

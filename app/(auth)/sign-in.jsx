@@ -1,10 +1,16 @@
-import { View, Text, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Alert,
+} from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { createUser } from "../../library/appwrite";
 import { signIn } from "../../library/appwrite";
 
@@ -17,7 +23,7 @@ const SignIn = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submit = async () => {
-    if (!form.email || !form.password || !form.username) {
+    if (!form.email || !form.password) {
       Alert.alert("Error", "Please fill in all fields");
     }
 
@@ -70,11 +76,9 @@ const SignIn = () => {
           <View className="">
             <CustomButton
               title="Sign In"
-              handlePress={() => {
-                router.push("/sign-up");
-              }}
               containerStyles="mt-7"
-              disabled={!form.email || !form.password || !confirmPassword}
+              handlePress={submit}
+              disabled={!form.email || !form.password}
               isLoading={isSubmitting}
             />
 

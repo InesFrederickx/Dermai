@@ -24,14 +24,14 @@ const TabIcon = ({ icon, color, name, focused }) => {
 
 const TabsLayout = () => {
   return (
-    <>
+    <View className="flex-1 bg-[#F4EEE4]">
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: "#44402F",
-          tabBarInactiveTintColor: "#44402F",
+          tabBarActiveTintColor: "#2B4735",
+          tabBarInactiveTintColor: "#2B4735",
           tabBarStyle: {
-            backgroundColor: "rgba(252, 245, 242, 0.8)",
+            backgroundColor: "#FFFFFF",
             borderTopWidth: 1,
             borderTopColor: "rgba(252, 245, 242, 0.8)",
             height: 90,
@@ -107,7 +107,7 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-    </>
+    </View>
   );
 };
 

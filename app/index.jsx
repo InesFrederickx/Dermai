@@ -1,35 +1,21 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ScrollView,
-  Text,
-  View,
-  Image,
-  ImageBackground,
-  Dimensions,
-} from "react-native";
+import { ScrollView, Text, View, Image, Dimensions } from "react-native";
 import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { icons } from "../constants";
 import CustomButton from "../components/CustomButton";
 import images from "../constants/images";
+import logo from "../assets/icons/logo.png";
 
 export default function App() {
-  const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#F4EEE4", height: 100 }}>
       <View className="w-full justify-around min-h-[85vh] px-8">
         <View className="items-center mt-20">
           <Image
-            source={icons.logo}
-            className="w-[150px] h-[110px]"
-            resizeMode="contain"
+            source={icons.logo_titel}
+            style={{ width: 140, height: 140, overflow: "visible" }}
           />
-
-          <View className="relative mt-5">
-            <Text className="text-5xl text-orange font-avbold text-center mb-20">
-              Dermai
-            </Text>
-          </View>
         </View>
 
         <View className="w-full pl-8 mb-[200]">
