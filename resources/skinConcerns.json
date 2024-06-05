@@ -1,0 +1,18 @@
+[
+  {
+    "name": "acne",
+    "description": "Acne is a skin condition that occurs when your hair follicles become plugged with oil and dead skin cells. It often causes whiteheads, blackheads or pimples, and usually appears on the face, forehead, chest, upper back and shoulders. Acne is most common among teenagers, though it affects people of all ages."
+  },
+  {
+    "name": "eczema",
+    "description": "Eczema is a condition where patches of skin become inflamed, itchy, red, cracked, and rough. Blisters may sometimes occur. Different stages and types of eczema affect 31.6 percent of people in the United States."
+  },
+  {
+    "name": "psoriasis",
+    "description": "Psoriasis is a chronic autoimmune condition that causes the rapid buildup of skin cells. This buildup of cells causes scaling on the skin’s surface. Inflammation and redness around the scales is fairly common. Typical psoriatic scales are whitish-silver and develop in thick, red patches. Sometimes, these patches will crack and bleed."
+  },
+  {
+    "name": "rosacea",
+    "description": "Rosacea is a common skin condition that causes redness and visible blood vessels in your face. It may also produce small, red, pus-filled bumps. These signs and symptoms may flare up for weeks to months and then go away for a while. Rosacea can be mistaken for acne, other skin problems or natural ruddiness."
+  }
+]

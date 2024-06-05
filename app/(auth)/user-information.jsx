@@ -194,8 +194,9 @@ const UserInformation = () => {
         </View>
         <Image
           source={icons.logo}
-          className="w-[200px] h-[200px]"
+          className="w-[300px] h-[300px] rotate-45 opacity-50 mb-[10px]"
           resizeMode="contain"
+          z-index={-1}
         />
       </SafeAreaView>
     </TouchableWithoutFeedback>

@@ -11,6 +11,7 @@ import scan from "../assets/icons/scan.png";
 import profile from "../assets/icons/profile.png";
 import logo from "../assets/icons/logo.png";
 import logo_titel from "../assets/icons/logo_titel.png";
+import logout from "../assets/icons/logout.png";
 
 export default {
   home,
@@ -26,4 +27,5 @@ export default {
   profile,
   logo,
   logo_titel,
+  logout,
 };

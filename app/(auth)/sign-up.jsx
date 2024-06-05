@@ -46,22 +46,13 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSubmit = () => {
-    if (form.password !== confirmPassword) {
-      setPasswordError("Make sure your passwords match!");
-      return;
-    }
-
-    setPasswordError("");
-  };
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView
         className="h-full"
         style={{ flex: 1, backgroundColor: "#F4EEE4", height: 100 }}
       >
-        <View className="w-full min-h-[83vh] flex: 1 px-7 my-6 mt-[70px]">
+        <View className="w-full min-h-[83vh] flex: 1 px-4 my-6 mt-[70px]">
           <Text className="text-[35px] text-secondary font-yesregular text-center">
             Let's finish making your account now!
           </Text>
@@ -73,7 +64,7 @@ const SignUp = () => {
               handleChangeText={(e) => setForm({ ...form, username: e })}
               otherStyles="mt-10"
               placeholder={"Jane"}
-              placeholderTextColor="#A0A3BD"
+              placeholderTextColor="#c0c4c2"
             />
             <FormField
               title="Email"
@@ -81,7 +72,7 @@ const SignUp = () => {
               handleChangeText={(e) => setForm({ ...form, email: e })}
               otherStyles="mt-7"
               placeholder={"Jane.Doe@gmail.com"}
-              placeholderTextColor="#A0A3BD"
+              placeholderTextColor="#c0c4c2"
               keyboardType="email-address"
             />
             <FormField
@@ -90,19 +81,8 @@ const SignUp = () => {
               handleChangeText={(e) => setForm({ ...form, password: e })}
               otherStyles="mt-7"
               placeholder={"..."}
-              placeholderTextColor="#A0A3BD"
+              placeholderTextColor="#c0c4c2"
             />
-            <FormField
-              title="Confirm Password"
-              value={confirmPassword}
-              handleChangeText={setConfirmPassword}
-              otherStyles="mt-7"
-              placeholder={"..."}
-              placeholderTextColor="#A0A3BD"
-            />
-            {passwordError && (
-              <Text style={{ color: "red" }}>{passwordError}</Text>
-            )}
           </View>
 
           <CustomButton

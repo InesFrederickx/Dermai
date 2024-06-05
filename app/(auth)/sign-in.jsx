@@ -13,6 +13,7 @@ import CustomButton from "../../components/CustomButton";
 import { Link, router } from "expo-router";
 import { createUser } from "../../library/appwrite";
 import { signIn } from "../../library/appwrite";
+import clsx from "clsx";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -60,7 +61,7 @@ const SignIn = () => {
               handleChangeText={(e) => setForm({ ...form, email: e })}
               otherStyles="mt-7"
               placeholder={"Jane.Doe@gmail.com"}
-              placeholderTextColor="#A0A3BD"
+              placeholderTextColor="#c0c4c2"
               keyboardType="email-address"
             />
             <FormField
@@ -69,7 +70,7 @@ const SignIn = () => {
               handleChangeText={(e) => setForm({ ...form, password: e })}
               otherStyles="mt-7"
               placeholder={"..."}
-              placeholderTextColor="#A0A3BD"
+              placeholderTextColor="#c0c4c2"
             />
           </View>
 
@@ -80,11 +81,17 @@ const SignIn = () => {
               handlePress={submit}
               disabled={!form.email || !form.password}
               isLoading={isSubmitting}
+              className={clsx(
+                "mt-7",
+                form.email && form.password
+                  ? "border-orange"
+                  : "border-secondary"
+              )}
             />
 
             <View className="justify-center flex-row mt-[20px]">
               <Text className="text-lg text-secondary font-avlight">
-                I already have an account.{" "}
+                Have no account yet?{" "}
                 <Link
                   href={"/sign-up"}
                   className="font-avbolditalic text-lg text-secondary"

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "dry",
+    "characteristics": "small pores, feels tight in the morning, dull, rough skin, prone to redness and flaking",
+    "image": "../assets/images/skin_types/dry.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "oily",
+    "characteristics": "larger pores, shiny/greasy skin, may have blemishes or blackheads",
+    "image": "../assets/images/skin_types/oily.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "combination",
+    "characteristics": "medium sized pores in T-zone (forehead and nose), oily in T-zone;, may have blemishes or blackheads",
+    "image": "../assets/images/skin_types/normal.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "dehydrated",
+    "characteristics": "dry skin, may have rough or flakey spots but produces excessive sebum, should be treated as oily skin, despite dry appearance",
+    "image": "../assets/images/skin_types/dry.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "sensitive",
+    "characteristics": "fine/larger pores, redness, itching and dryness of skin, prone to irritation",
+    "image": "../assets/images/skin_types/normal.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "acne-prone",
+    "characteristics": "usually oily or combination skin, products easily irritate, caused by sensitivity or hormonal imbalances",
+    "image": "../assets/images/skin_types/oily.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  },
+  {
+    "name": "normal",
+    "characteristics": "pores barely visible, even skin tone, minimal skin sensitivities and blemishes",
+    "image": "../assets/images/skin_types/normal.png",
+    "position": {
+      "top": 10,
+      "left": 10
+    }
+  }
+]

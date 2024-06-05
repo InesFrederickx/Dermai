@@ -4,7 +4,7 @@ import {
   ID,
   Avatars,
   Databases,
-  Storage,
+  Query,
 } from "react-native-appwrite";
 
 import {
@@ -13,7 +13,7 @@ import {
   PROJECT_ID,
   DATABASE_ID,
   USER_COLLECTION_ID,
-  IMAGE_COLLECTION_ID,
+  SKIN_TYPE_COLLECTION_ID,
   STORAGE_ID,
 } from "@env";
 
@@ -23,6 +23,7 @@ export const config = {
   projectId: PROJECT_ID,
   databaseId: DATABASE_ID,
   userCollectionId: USER_COLLECTION_ID,
+  skinTypeCollectionIs: SKIN_TYPE_COLLECTION_ID,
   storageId: STORAGE_ID,
 };
 
@@ -63,21 +64,49 @@ export const createUser = async (email, password, username) => {
     );
     return newUser;
   } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const signIn = async (email, password) => {
+  try {
+    // Try to get the user's account information
+    try {
+      const accountInfo = await account.get();
+
+      // If the user is authenticated, delete the current session
+      if (accountInfo.$id) {
+        await account.deleteSession("current");
+      }
+    } catch (error) {
+      // If the user is not authenticated, ignore the error and proceed to create a new session
+      console.log(
+        "User is not authenticated. Proceeding to create a new session."
+      );
+    }
+
+    // Create a new session
+    const newSession = await account.createEmailPasswordSession(
+      email,
+      password
+    );
+
+    return newSession;
+  } catch (error) {
     console.log(error);
     throw new Error(error);
   }
 };
 
-export async function signIn(email, password) {
+export const signOut = async () => {
   try {
-    const session = await account.createEmailPasswordSession(email, password);
+    const session = await account.deleteSession("current");
 
     return session;
   } catch (error) {
-    console.log(error);
     throw new Error(error);
   }
-}
+};
 
 const deleteAccount = async () => {
   try {
@@ -88,14 +117,31 @@ const deleteAccount = async () => {
   }
 };
 
-export const fetchUsername = async (userId) => {
+export const getCurrentUser = async () => {
   try {
-    const userDocument = await databases.getDocument(
+    const currentAccount = await account.get();
+
+    if (!currentAccount) throw Error;
+
+    const currentUser = await databases.listDocuments(
+      config.databaseId,
       config.userCollectionId,
-      userId
+      [Query.equal("accountId", currentAccount.$id)]
     );
-    return userDocument.username; // Replace 'username' with the actual key for the username in your database
+
+    if (!currentUser) throw Error;
+
+    return currentUser.documents[0];
   } catch (error) {
-    console.error(error);
+    console.log(error);
+  }
+};
+
+export const getUsername = async () => {
+  try {
+    const accountInfo = await account.get();
+    return accountInfo.name;
+  } catch (error) {
+    console.error("Error getting username:", error);
   }
 };

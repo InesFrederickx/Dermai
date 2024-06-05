@@ -40,21 +40,16 @@ const TabsLayout = () => {
             marginBottom: 20,
             borderRadius: 100,
             paddingBottom: -20,
+            justifyContent: "center",
           },
         }}
       >
         <Tabs.Screen
           name="home"
           options={{
-            title: "Home",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                name="Home"
-                icon={icons.home}
-                color={color}
-                focused={focused}
-              />
+              <TabIcon icon={icons.home} color={color} focused={focused} />
             ),
           }}
         />
@@ -62,15 +57,9 @@ const TabsLayout = () => {
         <Tabs.Screen
           name="products"
           options={{
-            title: "Products",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                name="Products"
-                icon={icons.product}
-                color={color}
-                focused={focused}
-              />
+              <TabIcon icon={icons.product} color={color} focused={focused} />
             ),
           }}
         />
@@ -78,15 +67,9 @@ const TabsLayout = () => {
         <Tabs.Screen
           name="scan"
           options={{
-            title: "Scan",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                name="Scan"
-                icon={icons.scan}
-                color={color}
-                focused={focused}
-              />
+              <TabIcon icon={icons.scan} color={color} focused={focused} />
             ),
           }}
         />
@@ -94,15 +77,9 @@ const TabsLayout = () => {
         <Tabs.Screen
           name="profile"
           options={{
-            title: "Profile",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                name="Profile"
-                icon={icons.profile}
-                color={color}
-                focused={focused}
-              />
+              <TabIcon icon={icons.profile} color={color} focused={focused} />
             ),
           }}
         />
