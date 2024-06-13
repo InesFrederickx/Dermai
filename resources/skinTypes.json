@@ -2,64 +2,64 @@
   {
     "name": "dry",
     "characteristics": "small pores, feels tight in the morning, dull, rough skin, prone to redness and flaking",
-    "image": "../assets/images/skin_types/dry.png",
+    "image": "dry",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 0,
+      "left": 0
     }
   },
   {
     "name": "oily",
     "characteristics": "larger pores, shiny/greasy skin, may have blemishes or blackheads",
-    "image": "../assets/images/skin_types/oily.png",
+    "image": "oily",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 18,
+      "left": 35
     }
   },
   {
     "name": "combination",
     "characteristics": "medium sized pores in T-zone (forehead and nose), oily in T-zone;, may have blemishes or blackheads",
-    "image": "../assets/images/skin_types/normal.png",
+    "image": "normal",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 35,
+      "left": 65
     }
   },
   {
     "name": "dehydrated",
     "characteristics": "dry skin, may have rough or flakey spots but produces excessive sebum, should be treated as oily skin, despite dry appearance",
-    "image": "../assets/images/skin_types/dry.png",
+    "image": "dry",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 70,
+      "left": 60
     }
   },
   {
     "name": "sensitive",
     "characteristics": "fine/larger pores, redness, itching and dryness of skin, prone to irritation",
-    "image": "../assets/images/skin_types/normal.png",
+    "image": "normal",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 0,
+      "left": 70
     }
   },
   {
     "name": "acne-prone",
     "characteristics": "usually oily or combination skin, products easily irritate, caused by sensitivity or hormonal imbalances",
-    "image": "../assets/images/skin_types/oily.png",
+    "image": "oily",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 65,
+      "left": 23
     }
   },
   {
     "name": "normal",
     "characteristics": "pores barely visible, even skin tone, minimal skin sensitivities and blemishes",
-    "image": "../assets/images/skin_types/normal.png",
+    "image": "normal",
     "position": {
-      "top": 10,
-      "left": 10
+      "top": 35,
+      "left": 0
     }
   }
 ]

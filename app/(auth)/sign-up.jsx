@@ -13,8 +13,11 @@ import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 import { Link, router } from "expo-router";
 import { createUser } from "../../library/appwrite";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignUp = () => {
+  const { skinType, skinConcerns } = useGlobalContext();
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -24,16 +27,27 @@ const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submit = async () => {
-    if (!form.email || !form.password || !form.username) {
+    if (
+      !form.email ||
+      !form.password ||
+      !form.username ||
+      !skinType ||
+      !skinConcerns
+    ) {
       Alert.alert("Error", "Please fill in all fields");
+      return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const result = await createUser(form.email, form.password, form.username);
-
-      //set it to global state...
+      const result = await createUser(
+        form.email,
+        form.password,
+        form.username,
+        skinType,
+        skinConcerns
+      );
 
       router.replace("/home");
     } catch (error) {
@@ -89,7 +103,7 @@ const SignUp = () => {
             title="Make Account"
             containerStyles="mt-7"
             handlePress={submit}
-            disabled={!form.email || !form.password || !confirmPassword}
+            disabled={!form.email || !form.password}
             isLoading={isSubmitting}
           />
 

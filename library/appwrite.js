@@ -38,13 +38,21 @@ const account = new Account(client);
 const avatars = new Avatars(client);
 const databases = new Databases(client);
 
-export const createUser = async (email, password, username) => {
+export const createUser = async (
+  email,
+  password,
+  username,
+  skinType,
+  skinConcerns
+) => {
   try {
     const newAccount = await account.create(
       ID.unique(),
       email,
       password,
-      username
+      username,
+      skinType,
+      skinConcerns
     );
 
     if (!newAccount) throw Error;
@@ -60,6 +68,8 @@ export const createUser = async (email, password, username) => {
         email,
         username,
         avatar: avatarUrl,
+        skinType,
+        skinConcerns,
       }
     );
     return newUser;

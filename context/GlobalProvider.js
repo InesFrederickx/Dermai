@@ -8,6 +8,8 @@ const GlobalProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [skinType, setSkinType] = useState(null);
+  const [skinConcerns, setSkinConcerns] = useState(null);
 
   useEffect(() => {
     getCurrentUser()
@@ -35,6 +37,10 @@ const GlobalProvider = ({ children }) => {
         user,
         setUser,
         isLoading,
+        skinType,
+        setSkinType,
+        skinConcerns,
+        setSkinConcerns,
       }}
     >
       {children}

@@ -12,6 +12,11 @@ import profile from "../assets/icons/profile.png";
 import logo from "../assets/icons/logo.png";
 import logo_titel from "../assets/icons/logo_titel.png";
 import logout from "../assets/icons/logout.png";
+import sunny from "../assets/icons/sunny.png";
+import arrowdown from "../assets/icons/arrow-down.png";
+import pinkstar from "../assets/icons/pinkstar.png";
+import arrowtop from "../assets/icons/arrowtop.png";
+import emptypinkstar from "../assets/icons/emptypinkstar.png";
 
 export default {
   home,
@@ -28,4 +33,9 @@ export default {
   logo,
   logo_titel,
   logout,
+  sunny,
+  arrowdown,
+  pinkstar,
+  arrowtop,
+  emptypinkstar,
 };

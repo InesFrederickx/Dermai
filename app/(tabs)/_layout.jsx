@@ -10,7 +10,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
         source={icon}
         resizeMode="contain"
         tintColor={color}
-        className="w-7 h-7"
+        className="w-10 h-10 mb-[-18px]"
       />
       <Text
         className={`${focused ? "font-avbold" : "font-avregular"} text-xs`}
@@ -34,13 +34,13 @@ const TabsLayout = () => {
             backgroundColor: "#FFFFFF",
             borderTopWidth: 1,
             borderTopColor: "rgba(252, 245, 242, 0.8)",
-            height: 90,
+            height: 70,
             marginLeft: 20,
             marginRight: 20,
             marginBottom: 20,
             borderRadius: 100,
-            paddingBottom: -20,
             justifyContent: "center",
+            elevation: 0,
           },
         }}
       >
