@@ -31,7 +31,7 @@ const Products = () => {
         <View className="flex-grow min-h-[83vh] px-7 my-5 bg-primary">
           <View className="mt-2">
             <View className="items-center">
-              <Text className="font-yesregular text-5xl text-secondary text-center">
+              <Text className="font-yesregular text-5xl mt-7 text-secondary text-center">
                 Ingredients
               </Text>
             </View>

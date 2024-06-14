@@ -67,13 +67,14 @@ const Profile = () => {
               </TouchableOpacity>
             </View>
             <View className="items-center">
-              <Text className="font-yesregular text-5xl text-secondary text-center">
+              <Text className="font-yesregular mt-2 text-5xl text-secondary text-center">
                 Profile
               </Text>
             </View>
             <ImageBackground
+              style={{ transform: [{ scaleX: -1 }] }}
               className="absolute w-[140px] h-[140px] left-[-70px] top-[50px]"
-              source={images.leftmediumleaf}
+              source={images.animatedblad}
             ></ImageBackground>
             <View className="w-[150px] h-[150px] bg-white rounded-full flex items-center justify-center mt-5">
               <Text className="text-orange-500 text-8xl mt-5 font-avregular">
@@ -116,7 +117,7 @@ const Profile = () => {
             </View>
             <ImageBackground
               className="absolute w-[110px] h-[110px] right-[-62px] top-[220px]"
-              source={images.rightmediumleaf}
+              source={images.animatedblad}
             ></ImageBackground>
           </View>
           <View className="bg-white rounded-[50px] mt-[35px] p-4 border-[0.3px] border-secondary">
@@ -125,11 +126,12 @@ const Profile = () => {
             </Text>
             <SkinType source={images.dryness} title="Combination" />
             <ImageBackground
+              style={{ transform: [{ scaleX: -1 }] }}
               className="absolute w-[110px] h-[110px] left-[-70px] top-[190px]"
-              source={images.leftmediumleaf}
+              source={images.animatedblad}
             ></ImageBackground>
             <View className="bg-white rounded-[50px] mt-[35px] p-4 border-[0.3px] border-secondary mb-4">
-              <Text className="font-avlightitalic text-xl text-secondary text-center py-4 px-9">
+              <Text className="font-avlightitalic text-xl text-secondary text-center pb-4 px-9">
                 Skin Concern(s)
               </Text>
               <View className="mt-[-15px]">

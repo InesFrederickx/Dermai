@@ -15,6 +15,7 @@ import normal from "../../assets/images/skin_types/normal.png";
 import dry from "../../assets/images/skin_types/dry.png";
 import CustomButton from "../../components/CustomButton";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import Toast from "react-native-toast-message";
 
 const SkinConcerns = () => {
   const navigation = useNavigation();
@@ -39,12 +40,27 @@ const SkinConcerns = () => {
   const navigateToNextPage = () => {
     if (selectedSkinConcerns.length > 0) {
       setSkinConcerns(selectedSkinConcerns);
-      navigation.navigate("user-information", {
+      navigation.navigate("sign-up", {
         selectedSkinConcerns,
       });
     } else {
-      alert("Please select your skin concern(s)");
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Please select your skin concern(s)",
+        type: "customToast",
+        position: "top",
+      });
     }
+  };
+
+  const toastConfig = {
+    customToast: ({ text1, text2 }) => (
+      <View className="h-full w-full bg-secondary p-5 mt-1 rounded-b-[15px]">
+        <Text className="text-white font-yesregular">{text1}</Text>
+        <Text className="text-white font-avregular">{text2}</Text>
+      </View>
+    ),
   };
 
   return (
@@ -55,7 +71,7 @@ const SkinConcerns = () => {
             source={icons.leftArrow}
             style={{
               position: "absolute",
-              top: 0,
+              top: 10,
               left: 0,
               tintColor: "#2B4735",
               width: 40,
@@ -74,7 +90,7 @@ const SkinConcerns = () => {
 
         <View className="h-[18vh] justify-center">
           <Text className="text-[30px] font-avregular text-secondary mt-10">
-            Skin Type
+            Skin Concerns
           </Text>
           <Text className="text-[18px] font-avlightitalic text-secondary">
             You can combine (some) answers
@@ -119,9 +135,9 @@ const SkinConcerns = () => {
                 <Text
                   className={`text-[18px] ${
                     selectedSkinConcerns.includes(item.name) // Check if the item is selected
-                      ? "font-avbold"
-                      : "font-avregular"
-                  } text-secondary`}
+                      ? "font-avbold text-orange-500" // Add orange color when selected
+                      : "font-avregular text-secondary"
+                  }`}
                 >
                   {item.name}
                 </Text>
@@ -139,6 +155,7 @@ const SkinConcerns = () => {
           />
         </View>
       </View>
+      <Toast config={toastConfig} />
     </SafeAreaView>
   );
 };

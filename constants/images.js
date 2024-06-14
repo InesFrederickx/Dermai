@@ -10,6 +10,7 @@ import acnetexture from "../assets/images/acnetexture.png";
 import CHNiacinamide from "../assets/images/CHNiacinamide.png";
 import infoellipse from "../assets/images/infoellipse.png";
 import rightmediumleaf from "../assets/images/rightmediumleaf.png";
+import animatedblad from "../assets/images/Blad.gif";
 
 export default {
   gradientBackground,
@@ -24,4 +25,5 @@ export default {
   CHNiacinamide,
   infoellipse,
   rightmediumleaf,
+  animatedblad,
 };

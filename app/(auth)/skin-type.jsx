@@ -15,6 +15,7 @@ import normal from "../../assets/images/skin_types/normal.png";
 import dry from "../../assets/images/skin_types/dry.png";
 import CustomButton from "../../components/CustomButton";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import Toast from "react-native-toast-message";
 
 const SkinType = () => {
   const navigation = useNavigation();
@@ -35,8 +36,23 @@ const SkinType = () => {
         selectedSkinType,
       });
     } else {
-      alert("Please select your skin type");
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Please select your skin type",
+        type: "customToast",
+        position: "top",
+      });
     }
+  };
+
+  const toastConfig = {
+    customToast: ({ text1, text2 }) => (
+      <View className="h-full w-full bg-secondary p-5 mt-1 rounded-b-[15px]">
+        <Text className="text-white font-yesregular">{text1}</Text>
+        <Text className="text-white font-avregular">{text2}</Text>
+      </View>
+    ),
   };
 
   return (
@@ -47,7 +63,7 @@ const SkinType = () => {
             source={icons.leftArrow}
             style={{
               position: "absolute",
-              top: 0,
+              top: 10,
               left: 0,
               tintColor: "#2B4735",
               width: 40,
@@ -111,9 +127,9 @@ const SkinType = () => {
                 <Text
                   className={`text-[18px] ${
                     item.name === selectedSkinType
-                      ? "font-avbold"
-                      : "font-avregular"
-                  } text-secondary`}
+                      ? "font-avbold text-orange-500" // Add orange color when selected
+                      : "font-avregular text-secondary"
+                  }`}
                 >
                   {item.name}
                 </Text>
@@ -131,6 +147,7 @@ const SkinType = () => {
           />
         </View>
       </View>
+      <Toast config={toastConfig} />
     </SafeAreaView>
   );
 };

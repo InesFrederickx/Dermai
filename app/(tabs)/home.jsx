@@ -61,8 +61,9 @@ const Home = () => {
           </View>
           <View className="bg-white rounded-[50px] mt-[100px] p-4 border-[0.3px] border-secondary">
             <ImageBackground
-              className="absolute w-[100px] h-[100px] left-[-55px] top-[-50px]"
-              source={images.leftmediumleaf}
+              style={{ transform: [{ scaleX: -1 }] }}
+              className="absolute w-[100px] h-[100px] left-[-65px] top-[-50px]"
+              source={images.animatedblad}
             ></ImageBackground>
             <Text className="font-yesregular text-3xl text-secondary text-center">
               Tips & Tricks
