@@ -3,20 +3,20 @@
 </p>
 Do you want to educate yourself on what ingredients to search for when buying products? Then Dermai is the perfect application for you. Here you can find all kinds of information surrounding skincare ingredients. Find out what is best for your skin and skin problems by customizing your profile. Dermai can also save your skin's progress by pictures. It is the ideal app for someone who is eager to truly learn what goes into the skin.
 
-##Features
+## Features
 - **Personalized profile:** You can customize your profile by selecting your skin type and skin concerns. This will give you personalized recommendations.
 - **Homepage:** Here you can find your personalized recommendations and some handy tips&tricks!
 - **Ingredients:** On this page you can all the ingredients Dermai currently has to offer. You can further click on them to get all the information.
 - **Gallery:** Take a picture or upload one, select what ingredients you're currently using, give a description and save! That's how you can keep track of your progress with using certain ingredients.
 - **Profile page:** Here you can change your profile's information.
 
-##Technologies
+## Technologies
 - React Native
 - Expo
 - NativeWind
 - Appwrite
 
-  ##Sources
+  ## Sources
   Followed this tutorial for implementation of all of my technologies: https://youtu.be/ZBCUegTZF7M?si=FBgKg3js60nt3opO
   Date picker for Expo tutorial: https://youtu.be/UEfFjfW7Zes?si=B8zrjGK0GZhoH9z9
   All the information for ingredients, skin type and combinations of the previous: https://github.com/nic-pan/skincare-ingredients
