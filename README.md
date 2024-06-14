@@ -17,6 +17,6 @@ Do you want to educate yourself on what ingredients to search for when buying pr
 - Appwrite
 
 ## Sources
-Followed this tutorial for implementation of all of my technologies: https://youtu.be/ZBCUegTZF7M?si=FBgKg3js60nt3opO
-Date picker for Expo tutorial: https://youtu.be/UEfFjfW7Zes?si=B8zrjGK0GZhoH9z9
-All the information for ingredients, skin type and combinations of the previous: https://github.com/nic-pan/skincare-ingredients
+Followed this tutorial for implementation of all of my technologies: https://youtu.be/ZBCUegTZF7M?si=FBgKg3js60nt3opO<br/>
+Date picker for Expo tutorial: https://youtu.be/UEfFjfW7Zes?si=B8zrjGK0GZhoH9z9<br/>
+All the information for ingredients, skin type and combinations of the previous: https://github.com/nic-pan/skincare-ingredients<br/>
