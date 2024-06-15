@@ -10,6 +10,17 @@ Do you want to educate yourself on what ingredients to search for when buying pr
 - **Gallery:** Take a picture or upload one, select what ingredients you're currently using, give a description and save! That's how you can keep track of your progress with using certain ingredients.
 - **Profile page:** Here you can change your profile's information.
 
+##Guide to running the app through Visual Studio Code
+- Copy this link and start your repository with it: https://github.com/InesFrederickx/Dermai.git
+- Run `npm install` to install all the needed dependencies
+- Run the application by entering the command `npx expo start -c`
+- Install the Expo Go app on your phone
+- Scan the QR-code with either your camera (IOS) or within the app itself (Android)
+- Enjoy!
+
+##Guide to running the app through QR-code
+
+
 ## Technologies
 - React Native
 - Expo
