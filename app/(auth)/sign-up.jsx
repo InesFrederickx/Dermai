@@ -12,7 +12,7 @@ import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 import { Link, router } from "expo-router";
-import { createUser } from "../../library/appwrite";
+import { createUser, ensureCurrentUserLoaded } from "../../library/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import Toast from "react-native-toast-message";
 
@@ -69,9 +69,6 @@ const SignUp = () => {
       setIsSubmitting(false);
     }
   };
-
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
 
   const toastConfig = {
     customToast: ({ text1, text2 }) => (

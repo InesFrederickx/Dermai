@@ -40,9 +40,6 @@ const SignIn = () => {
 
     try {
       await signIn(form.email, form.password);
-
-      //set it to global state...
-
       router.replace("/home");
     } catch (error) {
       Toast.show({
@@ -117,7 +114,7 @@ const SignIn = () => {
                 <Text className="text-lg text-secondary font-avlight">
                   Have no account yet?{" "}
                   <Link
-                    href={"/sign-up"}
+                    href={"/skin-type"}
                     className="font-avbolditalic text-lg text-secondary"
                   >
                     Sign Up

@@ -38,26 +38,28 @@ const account = new Account(client);
 const avatars = new Avatars(client);
 const databases = new Databases(client);
 
-export const createUser = async (
+export async function createUser(
   email,
   password,
   username,
   skinType,
   skinConcerns
-) => {
+) {
   try {
     const newAccount = await account.create(
       ID.unique(),
       email,
       password,
-      username,
-      skinType,
-      skinConcerns
+      username
     );
 
-    if (!newAccount) throw Error;
+    if (!newAccount) throw new Error("Failed to create account");
 
     const avatarUrl = avatars.getInitials(username);
+
+    await clearSessions();
+
+    await accountCreationSignIn(email, password);
 
     const newUser = await databases.createDocument(
       config.databaseId,
@@ -65,22 +67,22 @@ export const createUser = async (
       ID.unique(),
       {
         accountId: newAccount.$id,
-        email,
-        username,
+        email: email,
+        username: username,
         avatar: avatarUrl,
-        skinType,
-        skinConcerns,
+        skinType: skinType,
+        skinConcerns: skinConcerns,
       }
     );
     return newUser;
   } catch (error) {
-    throw new Error(error);
+    console.error("Error creating user:", error);
+    throw new Error(error.message);
   }
-};
+}
 
 export const signIn = async (email, password) => {
   try {
-    // Try to get the user's account information
     try {
       const accountInfo = await account.get();
 
@@ -147,11 +149,78 @@ export const getCurrentUser = async () => {
   }
 };
 
+//To solve problem with not being able to access user data after sign up --> appwrite problem
+export async function accountCreationSignIn(email, password) {
+  try {
+    const session = await account.createEmailPasswordSession(email, password);
+    return session;
+  } catch (error) {
+    if (
+      error.message ===
+      "AppwriteException: Creation of a session is prohibited when a session is active."
+    ) {
+      console.log("A session is already active.");
+      return account.getSession("current");
+    }
+    console.error("Error while signing in:", error);
+    throw new Error(error.message);
+  }
+}
+
+export async function clearSessions() {
+  try {
+    const sessions = await account.listSessions();
+    for (const session of sessions.sessions) {
+      await account.deleteSession(session.$id);
+    }
+    console.log("All sessions are cleared.");
+  } catch (error) {
+    console.error("Error clearing sessions:", error);
+  }
+}
+
+export const checkForExistingSession = async () => {
+  try {
+    const session = await account.getSession("current");
+    if (session) {
+      // Session exists, fetch user details
+      const currentUser = await getCurrentUser();
+      // Update app state here to reflect user is logged in
+      console.log("User is logged in", currentUser);
+      return currentUser;
+    }
+  } catch (error) {
+    // Handle case where no session exists
+    console.error("No active session:", error);
+    // Possibly redirect to login screen or update state to reflect logged out status
+  }
+};
+
 export const getUsername = async () => {
   try {
     const accountInfo = await account.get();
     return accountInfo.name;
   } catch (error) {
     console.error("Error getting username:", error);
+  }
+};
+
+export const updateUserEmail = async (email, password) => {
+  try {
+    const updatedAccount = await account.updateEmail(email, password);
+    return updatedAccount;
+  } catch (error) {
+    console.error("Failed to update user email:", error);
+    throw new Error(error);
+  }
+};
+
+export const updateUserPassword = async (password, oldPassword) => {
+  try {
+    const updatedAccount = await account.updatePassword(password, oldPassword);
+    return updatedAccount;
+  } catch (error) {
+    console.error("Failed to update user password:", error);
+    throw new Error(error);
   }
 };

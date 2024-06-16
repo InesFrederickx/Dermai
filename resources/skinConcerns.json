@@ -1,15 +1,15 @@
 [
   {
-    "name": "acne",
+    "name": "Acne",
     "description": "Acne is a skin condition that occurs when your hair follicles become plugged with oil and dead skin cells. It often causes whiteheads, blackheads or pimples, and usually appears on the face, forehead, chest, upper back and shoulders. Acne is most common among teenagers, though it affects people of all ages.",
-    "image": "dry",
+    "image": "oily",
     "position": {
       "top": 0,
       "left": 0
     }
   },
   {
-    "name": "eczema",
+    "name": "Eczema",
     "description": "Eczema is a condition where patches of skin become inflamed, itchy, red, cracked, and rough. Blisters may sometimes occur. Different stages and types of eczema affect 31.6 percent of people in the United States.",
     "image": "dry",
     "position": {
@@ -18,8 +18,8 @@
     }
   },
   {
-    "name": "psoriasis",
-    "description": "Psoriasis is a chronic autoimmune condition that causes the rapid buildup of skin cells. This buildup of cells causes scaling on the skin’s surface. Inflammation and redness around the scales is fairly common. Typical psoriatic scales are whitish-silver and develop in thick, red patches. Sometimes, these patches will crack and bleed.",
+    "name": "Dark spots",
+    "description": "Dark spots, or hyperpigmentation, are the result of an excess production of melanin, or skin pigment. Although usually harmless, they can be a sign of an underlying medical condition. Some common causes of dark spots include sun exposure, hormonal changes, and aging.",
     "image": "dry",
     "position": {
       "top": 30,
@@ -27,9 +27,36 @@
     }
   },
   {
-    "name": "rosacea",
+    "name": "Rosacea",
     "description": "Rosacea is a common skin condition that causes redness and visible blood vessels in your face. It may also produce small, red, pus-filled bumps. These signs and symptoms may flare up for weeks to months and then go away for a while. Rosacea can be mistaken for acne, other skin problems or natural ruddiness.",
+    "image": "normal",
+    "position": {
+      "top": 40,
+      "left": 60
+    }
+  },
+  {
+    "name": "Dryness",
+    "description": "Dry skin is a common condition with many causes. Dry skin can be a symptom that indicates a more serious diagnosis. But in most cases, dry skin is caused by environmental factors that remove moisture from the skin. Heat, hot showers, arid climates, and harsh soaps can all trigger dry skin.",
     "image": "dry",
+    "position": {
+      "top": 40,
+      "left": 60
+    }
+  },
+  {
+    "name": "Greasiness",
+    "description": "Oily skin is the result of the overproduction of sebum from sebaceous glands. These glands are located under the skin’s surface. Sebum is an oily substance made of fats. Sebum isn’t all bad since it helps protect and moisturize your skin and keep your hair shiny and healthy. Too much sebum, however, may lead to oily skin, which can lead to clogged pores and acne.",
+    "image": "oily",
+    "position": {
+      "top": 40,
+      "left": 60
+    }
+  },
+  {
+    "name": "Texture",
+    "description": "Uneven skin texture is commonly a result of excess dead skin cells that build up on the surface of your skin. When these dead skin cells are not exfoliated, they can cause your skin to appear dull, rough, and aged. Exfoliating your skin regularly can help to improve the texture of your skin.",
+    "image": "normal",
     "position": {
       "top": 40,
       "left": 60

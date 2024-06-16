@@ -30,16 +30,6 @@
     "reason": "irritation, redness, inflammation, peeling and/or dryness"
   },
   {
-    "ingredients": ["AHA (alpha hydroxy acid)", "vitamin C"],
-    "compatible": false,
-    "reason": "possible irritation"
-  },
-  {
-    "ingredients": ["BHA (beta hydroxy acid)", "vitamin C"],
-    "compatible": false,
-    "reason": "possible irritation"
-  },
-  {
     "ingredients": ["retinol", "hyaluronic acid"],
     "compatible": true,
     "reason": "skin regeneration"

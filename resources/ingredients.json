@@ -1,111 +1,257 @@
 [
   {
     "name": "AHA (alpha hydroxy acid)",
+    "properties": "Exfoliating",
+    "propertiesArray": ["Exfoliating"],
     "effects": "Water-soluble, targets signs of ageing and skin damage, renews skin radiance, exfoliates the top layer of the skin's surface, improves skin texture",
-    "skinTypes": ["normal", "dry", "combination"]
+    "image": "exfoliation",
+    "imageComposition": "molecules",
+    "skinTypes": ["Normal", "Dry", "Combination", "Dehydrated"],
+    "skinTypesBad": ["Sensitive", "Acne-prone"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Acne", "Greasiness"]
   },
   {
     "name": "BHA (beta hydroxy acid)",
+    "properties": "Exfoliating, unclogging",
+    "propertiesArray": ["Exfoliating", "unclogging"],
     "effects": "Oil-soluble, exfoliates below the skin's surface, unclogs pores, anti-inflammatory and anti-bacterial properties",
-    "skinTypes": ["normal", "dry", "combination", "oily", "sensitive"]
+    "image": "exfoliation",
+    "imageComposition": "molecules",
+    "skinTypes": ["Normal", "Acne-prone", "Combination", "Oily", "Sensitive"],
+    "skinTypesBad": ["Dehydrated", "Dry"],
+    "skinConcerns": ["Acne", "Dark spots", "Texture", "Rosacea", "Greasiness"],
+    "skinConcernsBad": ["Dryness", "Eczema"]
   },
   {
     "name": "PHA (poly hydroxy acid)",
+    "properties": "Exfoliating",
+    "propertiesArray": ["Exfoliating"],
     "effects": "Exfoliates gently, with less irritation, restores the healthy moisture barrier",
-    "skinTypes": ["dry", "dehydrated", "sensitive"]
+    "image": "exfoliation",
+    "imageComposition": "molecules",
+    "skinTypes": [
+      "Normal",
+      "Oily",
+      "Dry",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone",
+      "Sensitive"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": ["Dryness", "Texture", "Eczema", "Dark spots", "Rosacea"],
+    "skinConcernsBad": ["None"]
   },
   {
-    "name": "retinol",
+    "name": "Retinol",
+    "properties": "Anti-aging",
+    "propertiesArray": ["Anti-aging"],
     "effects": "Anti-aging, boosts collagen production, brightens dark spots, reduces the look of fine lines and wrinkles",
-    "skinTypes": ["normal"]
+    "image": "dryness",
+    "imageComposition": "retinol",
+    "skinTypes": ["Normal", "Oily", "Combination", "Acne-prone"],
+    "skinTypesBad": ["Sensitive", "Dry", "Dehydrated"],
+    "skinConcerns": ["Dark spots", "Texture", "Acne"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Dryness", "Dehydration"]
   },
   {
-    "name": "hyaluronic acid",
+    "name": "Hyaluronic acid",
+    "properties": "Hydrating, repairing",
+    "propertiesArray": ["Hydrating", "Repairing"],
     "effects": "Naturally present in the skin, its concentrations increase when there is damage in need of repair (e.g. dry lips), binds to water to help retain moisture; has antibacterial properties",
+    "image": "dryness",
+    "imageComposition": "hyaluronicacid",
     "skinTypes": [
-      "normal",
-      "oily",
-      "dry",
-      "sensitive",
-      "combination",
-      "dehydrated",
-      "acne-prone"
-    ]
+      "Normal",
+      "Oily",
+      "Dry",
+      "Sensitive",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": [
+      "Dark spots",
+      "Texture",
+      "Dryness",
+      "Acne",
+      "Rosacea",
+      "Eczema",
+      "Greasiness"
+    ],
+    "skinConcernsBad": ["None"]
   },
   {
-    "name": "salicylic acid",
+    "name": "Salicylic acid",
+    "properties": "Anti-acne, unclogging",
+    "propertiesArray": ["Anti-acne", "Unclogging"],
     "effects": "Decongests pores, dissolves sebum for clearer, breakout-free skin, anti-inflammatory, helps reduce existing acne",
-    "skinTypes": ["oily", "combination", "acne-prone"]
+    "image": "acnetexture",
+    "imageComposition": "salicylicacid",
+    "skinTypes": ["Oily", "Combination", "Acne-prone", "Normal"],
+    "skinTypesBad": ["Sensitive", "Dry", "Dehydrated"],
+    "skinConcerns": ["Dark spots", "Texture", "Acne", "Greasiness"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Dryness"]
   },
   {
-    "name": "glycolic acid",
+    "name": "Glycolic acid",
+    "properties": "Anti-aging, lightening",
+    "propertiesArray": ["Anti-aging", "Lightening"],
     "effects": "Lightens hyperpigmentation/sun damage, softens fine lines and wrinkles, dissolves dead skin; smoothes texture, stimulates collagen production, brightens the skin",
+    "image": "acnetexture",
+    "imageComposition": "glycolicacid",
     "skinTypes": [
-      "normal",
-      "oily",
-      "dry",
-      "combination",
-      "dehydrated",
-      "acne-prone"
-    ]
+      "Normal",
+      "Oily",
+      "Dry",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["Sensitive"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness"],
+    "skinConcernsBad": ["Eczema", "Rosacea"]
   },
   {
-    "name": "niancinamide",
+    "name": "Niacinamide",
+    "properties": "Anti-aging, lightening",
+    "propertiesArray": ["Anti-aging", "Lightening"],
     "effects": "Fades hyperpigmentation, reduces the appearance of wrinkles, minimises pores, regulates sebum production, strenghtens the skin's moisture barrier",
+    "image": "dryness",
+    "imageComposition": "niacinimide",
     "skinTypes": [
-      "normal",
-      "oily",
-      "dry",
-      "sensitive",
-      "combination",
-      "dehydrated",
-      "acne-prone"
-    ]
+      "Normal",
+      "Oily",
+      "Dry",
+      "Sensitive",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": [
+      "Dark spots",
+      "Texture",
+      "Dryness",
+      "Acne",
+      "Rosacea",
+      "Eczema",
+      "Greasiness"
+    ],
+    "skinConcernsBad": ["None"]
   },
   {
-    "name": "vitamin C",
+    "name": "Vitamin C",
+    "properties": "Anti-aging, lightening",
+    "propertiesArray": ["Anti-aging", "Lightening"],
     "effects": "Antioxidant protection, shields skin from age-accelerating free radicals, encourages collagen production, firms skin; reduces appearance of wrinkles, fades hyperpigmentation and dark spots",
+    "image": "acnetexture",
+    "imageComposition": "vitaminC",
     "skinTypes": [
-      "normal",
-      "oily",
-      "dry",
-      "sensitive",
-      "combination",
-      "dehydrated",
-      "acne-prone"
-    ]
+      "Normal",
+      "Oily",
+      "Dry",
+      "Sensitive",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness", "Greasiness"],
+    "skinConcernsBad": ["Acne", "Rosacea", "Eczema"]
   },
   {
-    "name": "vitamin E",
+    "name": "Vitamin E",
+    "properties": "Moisturizing, smoothing",
+    "propertiesArray": ["Moisturizing", "Smoothing"],
     "effects": "Moisturizes skin, smoothes and softens skin cells, protects skin from free radicals that cause premature ageing",
+    "image": "dryness",
+    "imageComposition": "vitaminE",
     "skinTypes": [
-      "normal",
-      "oily",
-      "dry",
-      "sensitive",
-      "combination",
-      "dehydrated",
-      "acne-prone"
-    ]
+      "Normal",
+      "Oily",
+      "Dry",
+      "Sensitive",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": [
+      "Dark spots",
+      "Texture",
+      "Dryness",
+      "Acne",
+      "Rosacea",
+      "Eczema",
+      "Greasiness"
+    ],
+    "skinConcernsBad": ["None"]
   },
   {
-    "name": "panthenol",
+    "name": "Panthenol",
+    "properties": "Hydrating, moisturizing, repairing",
+    "propertiesArray": ["Hydrating", "Moisturizing", "Repairing"],
     "effects": "Prevents trans-epidermal water loss, supports a healthy moisture barrier",
-    "skinTypes": ["dry", "sensitive", "dehydrated"]
+    "image": "dryness",
+    "imageComposition": "pathenol",
+    "skinTypes": [
+      "Normal",
+      "Oily",
+      "Dry",
+      "Sensitive",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": [
+      "Dark spots",
+      "Texture",
+      "Dryness",
+      "Acne",
+      "Rosacea",
+      "Eczema",
+      "Greasiness"
+    ],
+    "skinConcernsBad": ["None"]
   },
   {
-    "name": "clay",
+    "name": "Clay",
+    "properties": "Exfoliating, unclogging",
+    "propertiesArray": ["Exfoliation", "Unclogging"],
     "effects": "Extremely absorbent, instantly, but temporarily minimises the appearance of pores, mattifies oily skin; may help reduce frequency of breakouts",
-    "skinTypes": ["combination", "oily"]
+    "image": "acnetexture",
+    "imageComposition": "molecules",
+    "skinTypes": ["Combination", "Oily", "Acne", "Normal"],
+    "skinTypesBad": ["Dry", "Sensitive"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness", "Acne"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Greasiness"]
   },
   {
-    "name": "argan oil",
+    "name": "Argan oil",
+    "properties": "Moisturizing",
+    "propertiesArray": ["Moisturizing"],
     "effects": "Has moisturizing abilities that can be used on skin, hair and cuticles",
-    "skinTypes": ["normal", "dry"]
+    "image": "dryness",
+    "imageComposition": "molecules",
+    "skinTypes": ["Normal", "Dry", "Combination", "Sensitive", "Dehydrated"],
+    "skinTypesBad": ["Oily", "Acne-prone"],
+    "skinConcerns": ["Sensitive", "Texture", "Dryness", "Dark spots"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Greasiness"]
   },
   {
-    "name": "benzoyl peroxide",
+    "name": "Benzoyl peroxide",
+    "properties": "Anti-acne, unclogging",
+    "propertiesArray": ["Anti-acne", "Unclogging"],
+    "image": "acnetexture",
+    "imageComposition": "benzoylperoxide",
     "effects": "Kills any acne-causing bacteria, gets rid of excess oil and dead skin cells",
-    "skinTypes": ["oily", "acne-prone"]
+    "skinTypes": ["Oily", "Acne-prone", "Combination", "Normal"],
+    "skinTypesBad": ["Dry", "Sensitive", "Dehydrated"],
+    "skinConcerns": ["Texture", "Greasiness", "Acne"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Dryness"]
   }
 ]

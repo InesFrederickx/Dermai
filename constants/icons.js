@@ -17,6 +17,9 @@ import arrowdown from "../assets/icons/arrow-down.png";
 import pinkstar from "../assets/icons/pinkstar.png";
 import arrowtop from "../assets/icons/arrowtop.png";
 import emptypinkstar from "../assets/icons/emptypinkstar.png";
+import routineface from "../assets/images/routineface.png";
+import difference from "../assets/icons/difference.png";
+import nomatch from "../assets/icons/nomatch.png";
 
 export default {
   home,
@@ -38,4 +41,7 @@ export default {
   pinkstar,
   arrowtop,
   emptypinkstar,
+  routineface,
+  difference,
+  nomatch,
 };
