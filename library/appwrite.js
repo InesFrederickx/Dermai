@@ -61,7 +61,12 @@ export async function createUser(
 
     const avatarUrl = avatars.getInitials(username);
 
-    await clearSessions();
+    try {
+      await clearSessions();
+    } catch (error) {
+      console.error("An error occurred:", error);
+      // Optionally, display a user-friendly error message on the phone screen
+    }
 
     await accountCreationSignIn(email, password);
 
@@ -80,7 +85,7 @@ export async function createUser(
     );
     return newUser;
   } catch (error) {
-    console.error("Error creating user:", error);
+    //console.error("Error creating user:", error);
     throw new Error(error.message);
   }
 }
@@ -178,9 +183,7 @@ export async function clearSessions() {
       await account.deleteSession(session.$id);
     }
     console.log("All sessions are cleared.");
-  } catch (error) {
-    console.error("Error clearing sessions:", error);
-  }
+  } catch (error) {}
 }
 
 export const checkForExistingSession = async () => {
