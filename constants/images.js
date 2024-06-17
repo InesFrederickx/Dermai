@@ -24,6 +24,9 @@ import circleOrange from "../assets/images/circleOrange.png";
 import dry from "../assets/images/skin_types/dry.png";
 import normal from "../assets/images/skin_types/normal.png";
 import oily from "../assets/images/skin_types/oily.png";
+import start from "../assets/images/start.png";
+import person from "../assets/images/person.jpg";
+import ine from "../assets/images/ine.jpg";
 
 export default {
   gradientBackground,
@@ -52,4 +55,7 @@ export default {
   dry,
   normal,
   oily,
+  start,
+  person,
+  ine,
 };

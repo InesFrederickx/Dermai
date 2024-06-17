@@ -482,9 +482,6 @@ const Home = () => {
               <Text className="font-yesregular text-4xl text-secondary">
                 Hey {userDetails.username},
               </Text>
-              <View className="ml-[10px]">
-                <Player ref={playerRef} icon={logo} />
-              </View>
             </View>
             <View>
               <Text className="font-avlightitalic text-base text-secondary mt-1">

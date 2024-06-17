@@ -7,6 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import icons from "../constants/icons";
+import {
+  isIngredientFavourite,
+  removeIngredientFromFavourites,
+} from "../library/appwrite";
 
 const Chemical = ({
   source,
@@ -20,31 +24,27 @@ const Chemical = ({
   const [isStarSelected, setIsStarSelected] = useState(false);
 
   useEffect(() => {
-    if (currentUser && currentUser.favourites) {
-      setIsStarSelected(
-        currentUser.favourites.includes(selectedIngredient.name)
+    const checkIfFavourite = async () => {
+      const isFavourite = await isIngredientFavourite(
+        currentUser?.$id,
+        selectedIngredient.name
       );
+      setIsStarSelected(isFavourite);
+    };
+
+    if (currentUser && selectedIngredient) {
+      checkIfFavourite();
     }
-  }, [currentUser]);
+  }, [currentUser, selectedIngredient]);
 
   const renderIcon = () => {
+    if (!isStarSelected) return null;
+
     return (
-      <TouchableOpacity
-        onPress={() => {
-          setIsStarSelected(!isStarSelected);
-          if (!isStarSelected && currentUser) {
-            const newFavourites = currentUser.favourites
-              ? [...currentUser.favourites, selectedIngredient.name]
-              : [selectedIngredient.name];
-            updateData(currentUser.$id, {
-              favourites: newFavourites,
-            });
-          }
-        }}
-      >
+      <TouchableOpacity onPress={removeIngredientFromFavourites}>
         <Image
-          source={isStarSelected ? icons.pinkstar : icons.emptypinkstar}
-          className="mr-[5px] w-[33px] h-8 bottom-0.5 right-0.5"
+          source={icons.pinkStar}
+          style={{ marginRight: 5, width: 33, height: 32 }} // Adjusted to React Native style object
         />
       </TouchableOpacity>
     );

@@ -13,8 +13,8 @@
     "description": "Eczema is a condition where patches of skin become inflamed, itchy, red, cracked, and rough. Blisters may sometimes occur. Different stages and types of eczema affect 31.6 percent of people in the United States.",
     "image": "dry",
     "position": {
-      "top": 0,
-      "left": 50
+      "top": 5,
+      "left": 37
     }
   },
   {
@@ -23,7 +23,7 @@
     "image": "dry",
     "position": {
       "top": 30,
-      "left": 20
+      "left": 10
     }
   },
   {
@@ -32,7 +32,7 @@
     "image": "normal",
     "position": {
       "top": 40,
-      "left": 60
+      "left": 40
     }
   },
   {
@@ -40,8 +40,8 @@
     "description": "Dry skin is a common condition with many causes. Dry skin can be a symptom that indicates a more serious diagnosis. But in most cases, dry skin is caused by environmental factors that remove moisture from the skin. Heat, hot showers, arid climates, and harsh soaps can all trigger dry skin.",
     "image": "dry",
     "position": {
-      "top": 40,
-      "left": 60
+      "top": 15,
+      "left": 70
     }
   },
   {
@@ -49,7 +49,7 @@
     "description": "Oily skin is the result of the overproduction of sebum from sebaceous glands. These glands are located under the skin’s surface. Sebum is an oily substance made of fats. Sebum isn’t all bad since it helps protect and moisturize your skin and keep your hair shiny and healthy. Too much sebum, however, may lead to oily skin, which can lead to clogged pores and acne.",
     "image": "oily",
     "position": {
-      "top": 40,
+      "top": 65,
       "left": 60
     }
   },
@@ -58,8 +58,8 @@
     "description": "Uneven skin texture is commonly a result of excess dead skin cells that build up on the surface of your skin. When these dead skin cells are not exfoliated, they can cause your skin to appear dull, rough, and aged. Exfoliating your skin regularly can help to improve the texture of your skin.",
     "image": "normal",
     "position": {
-      "top": 40,
-      "left": 60
+      "top": 65,
+      "left": 5
     }
   }
 ]

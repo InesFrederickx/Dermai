@@ -20,6 +20,8 @@ import emptypinkstar from "../assets/icons/emptypinkstar.png";
 import routineface from "../assets/images/routineface.png";
 import difference from "../assets/icons/difference.png";
 import nomatch from "../assets/icons/nomatch.png";
+import upload from "../assets/icons/image.png";
+import camera from "../assets/icons/camera.png";
 
 export default {
   home,
@@ -44,4 +46,6 @@ export default {
   routineface,
   difference,
   nomatch,
+  upload,
+  camera,
 };

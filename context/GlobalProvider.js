@@ -10,6 +10,7 @@ const GlobalProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [skinType, setSkinType] = useState(null);
   const [skinConcerns, setSkinConcerns] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     getCurrentUser()
@@ -41,6 +42,8 @@ const GlobalProvider = ({ children }) => {
         setSkinType,
         skinConcerns,
         setSkinConcerns,
+        selectedImage,
+        setSelectedImage,
       }}
     >
       {children}

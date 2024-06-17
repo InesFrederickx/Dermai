@@ -1,11 +1,12 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Platform } from "react-native";
 import { Tabs, Redirect } from "expo-router";
 
 import { icons } from "../../constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
+  const marginTopStyle = Platform.OS === "ios" ? { marginTop: 25 } : {};
   return (
-    <View className="items-center justify-center gap-2">
+    <View className="items-center justify-center gap-2 " style={marginTopStyle}>
       <Image
         source={icon}
         resizeMode="contain"
@@ -40,6 +41,7 @@ const TabsLayout = () => {
             marginBottom: 20,
             borderRadius: 100,
             justifyContent: "center",
+            alignItems: "center",
             elevation: 0,
           },
         }}
@@ -65,11 +67,21 @@ const TabsLayout = () => {
         />
 
         <Tabs.Screen
+          name="upload"
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon icon={icons.camera} color={color} focused={focused} />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
           name="scan"
           options={{
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon icon={icons.scan} color={color} focused={focused} />
+              <TabIcon icon={icons.upload} color={color} focused={focused} />
             ),
           }}
         />

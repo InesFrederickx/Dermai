@@ -111,15 +111,16 @@ const SkinType = () => {
                     overflow: "visible",
                     justifyContent: "center",
                     alignItems: "center",
-                    opacity: 0.7,
+                    opacity: 0.5,
                   },
                   item.name === selectedSkinType
                     ? {
-                        shadowColor: "black",
+                        shadowColor: "beige",
                         shadowOffset: { width: 2, height: 2 },
                         shadowOpacity: 0.4,
                         shadowRadius: 3.84,
                         elevation: 5,
+                        opacity: 1,
                       }
                     : {},
                 ]}

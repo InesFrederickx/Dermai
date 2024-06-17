@@ -23,6 +23,7 @@ import images from "../../constants/images";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import { router } from "expo-router";
 import SkinType from "../../components/SkinType";
+import Toast from "react-native-toast-message";
 
 const Profile = () => {
   const { user, setUser, setIsLogged } = useGlobalContext();
@@ -33,6 +34,9 @@ const Profile = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [newEmail, setNewEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [passwordModalVisible, setPasswordModalVisible] = useState(false);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -60,8 +64,12 @@ const Profile = () => {
     router.replace("/sign-in");
   };
 
-  const handleChange = () => {
-    setModalVisible(true);
+  const handleChange = (modalType) => {
+    if (modalType === "password") {
+      setPasswordModalVisible(true);
+    } else if (modalType === "other") {
+      setModalVisible(true);
+    }
   };
 
   const handleSubmit = async () => {
@@ -73,7 +81,17 @@ const Profile = () => {
           // Check if the update was successful
           setEmail(newEmail); // Update the email state
           setModalVisible(false); // Close the modal
-          // Optionally, you can add a success message or perform other actions here
+
+          // Show a toast message
+          Toast.show({
+            type: "success",
+            position: "top",
+            text1: "Email Update",
+            text2: "Email has been successfully changed",
+            visibilityTime: 3000,
+            type: "customToast",
+            autoHide: true,
+          });
         }
       } else {
         // Optionally, handle the case where email or password is not provided
@@ -83,6 +101,15 @@ const Profile = () => {
       console.error("Failed to update user email:", error);
       // Optionally, you can add error handling UI logic here
     }
+  };
+
+  const toastConfig = {
+    customToast: ({ text1, text2 }) => (
+      <View className="h-full w-full bg-secondary p-5 mt-1 rounded-b-[15px]">
+        <Text className="text-white font-yesregular">{text1}</Text>
+        <Text className="text-white font-avregular">{text2}</Text>
+      </View>
+    ),
   };
 
   return (
@@ -130,7 +157,7 @@ const Profile = () => {
                 {email}
               </Text>
               <TouchableOpacity
-                onPress={handleChange}
+                onPress={() => handleChange("other")}
                 className="rounded-full border-[1px] border-secondary p-1"
               >
                 <Text className="font-avlight text-lg text-secondary px-4">
@@ -213,11 +240,142 @@ const Profile = () => {
                         width: "100%",
                       }}
                     >
-                      <Button title="Save Email" onPress={handleSubmit} />
-                      <Button
-                        title="Cancel"
+                      <TouchableOpacity
+                        onPress={handleSubmit}
+                        className="bg-secondary rounded-full p-2 px-4"
+                      >
+                        <Text className="text-white font-avregular">
+                          Save Email
+                        </Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity
                         onPress={() => setModalVisible(false)}
-                      />
+                        className="bg-secondary rounded-full p-2 px-4"
+                      >
+                        <Text className="text-white font-avregular">
+                          Cancel
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+              </Modal>
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={passwordModalVisible}
+                onRequestClose={() => {
+                  setPasswordModalVisible(!passwordModalVisible);
+                }}
+              >
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                  }}
+                >
+                  <View
+                    style={{
+                      margin: 20,
+                      backgroundColor: "white",
+                      borderRadius: 30,
+                      padding: 35,
+                      alignItems: "center",
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 2,
+                      },
+                      shadowOpacity: 0.25,
+                      shadowRadius: 4,
+                      elevation: 5,
+                      width: "86%",
+                    }}
+                  >
+                    <Text className="font-avbold text-2xl text-secondary mb-5">
+                      Change Password
+                    </Text>
+                    <TextInput
+                      placeholder="Enter old password"
+                      placeholderTextColor="#787878"
+                      secureTextEntry={true}
+                      value={oldPassword}
+                      onChangeText={setOldPassword}
+                      className="font-avlight text-secondary bg-primary"
+                      style={{
+                        height: 50,
+                        borderRadius: 90,
+                        width: "100%",
+                        marginBottom: 20,
+                        paddingHorizontal: 10,
+                      }}
+                    />
+                    <TextInput
+                      placeholder="Enter new password"
+                      placeholderTextColor="#787878"
+                      secureTextEntry={true}
+                      value={newPassword}
+                      onChangeText={setNewPassword}
+                      className="font-avlight text-secondary bg-primary"
+                      style={{
+                        height: 50,
+                        borderRadius: 90,
+                        width: "100%",
+                        marginBottom: 20,
+                        paddingHorizontal: 10,
+                      }}
+                    />
+                    <View
+                      className="font-avregular text-secondary"
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}
+                    >
+                      <TouchableOpacity
+                        onPress={async () => {
+                          try {
+                            const updatedPassword = await updateUserPassword(
+                              newPassword,
+                              oldPassword
+                            );
+                            if (updatedPassword) {
+                              setPasswordModalVisible(false);
+
+                              // Show a toast message
+                              Toast.show({
+                                type: "success",
+                                position: "top",
+                                text1: "Password Update",
+                                text2: "Password has been successfully changed",
+                                visibilityTime: 3000,
+                                autoHide: true,
+                                type: "customToast",
+                              });
+                            }
+                          } catch (error) {
+                            console.error("Failed to update password:", error);
+                          }
+                        }}
+                        className="bg-secondary rounded-full p-2 px-4"
+                      >
+                        <Text className="text-white font-avregular">
+                          Save Password
+                        </Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity
+                        onPress={() => setPasswordModalVisible(false)}
+                        className="bg-secondary rounded-full p-2 px-4"
+                      >
+                        <Text className="text-white font-avregular">
+                          Cancel
+                        </Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
@@ -228,7 +386,7 @@ const Profile = () => {
                 Password
               </Text>
               <TouchableOpacity
-                onPress={handleChange}
+                onPress={() => handleChange("password")}
                 className="rounded-full border-[1px] border-secondary p-1"
               >
                 <Text className="font-avlight text-lg text-secondary px-4">
@@ -278,6 +436,7 @@ const Profile = () => {
             </View>
           </View>
         </View>
+        <Toast config={toastConfig} />
       </SafeAreaView>
     </ScrollView>
   );

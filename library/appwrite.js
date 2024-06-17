@@ -5,6 +5,7 @@ import {
   Avatars,
   Databases,
   Query,
+  Storage,
 } from "react-native-appwrite";
 
 import {
@@ -13,6 +14,7 @@ import {
   PROJECT_ID,
   DATABASE_ID,
   USER_COLLECTION_ID,
+  PHOTO_COLLECTION_ID,
   SKIN_TYPE_COLLECTION_ID,
   STORAGE_ID,
 } from "@env";
@@ -23,7 +25,8 @@ export const config = {
   projectId: PROJECT_ID,
   databaseId: DATABASE_ID,
   userCollectionId: USER_COLLECTION_ID,
-  skinTypeCollectionIs: SKIN_TYPE_COLLECTION_ID,
+  photoCollectionId: PHOTO_COLLECTION_ID,
+  skinTypeCollectionId: SKIN_TYPE_COLLECTION_ID,
   storageId: STORAGE_ID,
 };
 
@@ -37,6 +40,7 @@ client
 const account = new Account(client);
 const avatars = new Avatars(client);
 const databases = new Databases(client);
+const storage = new Storage(client);
 
 export async function createUser(
   email,
@@ -221,6 +225,164 @@ export const updateUserPassword = async (password, oldPassword) => {
     return updatedAccount;
   } catch (error) {
     console.error("Failed to update user password:", error);
+    throw new Error(error);
+  }
+};
+
+export const addIngredientToFavourites = async (userId, ingredient) => {
+  try {
+    const currentUser = await databases.getDocument(
+      config.databaseId,
+      config.userCollectionId,
+      userId
+    );
+
+    // Check if the ingredient is already in the favorites array to avoid duplicates
+    if (currentUser.favourites.includes(ingredient)) {
+      // Remove the ingredient from the favorites array
+      updatedFavourites = currentUser.favourites.filter(
+        (item) => item !== ingredient
+      );
+      console.log("Ingredient removed from favorites.");
+    } else {
+      // Add the ingredient to the favorites array
+      updatedFavourites = [...currentUser.favourites, ingredient];
+      console.log("Ingredient added to favorites.");
+    }
+
+    // Update the user document with the new or modified favorites array
+    const updatedUser = await databases.updateDocument(
+      config.databaseId,
+      config.userCollectionId,
+      userId,
+      { favourites: updatedFavourites }
+    );
+
+    return updatedUser;
+  } catch (error) {
+    console.error("Failed to add ingredient to favorites:", error);
+    throw new Error(error);
+  }
+};
+
+export const isIngredientFavourite = async (userId, ingredient) => {
+  try {
+    const currentUser = await databases.getDocument(
+      config.databaseId,
+      config.userCollectionId,
+      userId
+    );
+    return currentUser.favourites.includes(ingredient);
+  } catch (error) {
+    console.error("Failed to check if ingredient is favourite:", error);
+    throw new Error(error);
+  }
+};
+
+export const removeIngredientFromFavourites = async (userId, ingredient) => {
+  try {
+    const currentUser = await databases.getDocument(
+      config.databaseId,
+      config.userCollectionId,
+      userId
+    );
+
+    if (!currentUser.favourites.includes(ingredient)) {
+      console.log("Ingredient not in favorites.");
+      return currentUser;
+    }
+
+    const updatedFavourites = currentUser.favourites.filter(
+      (item) => item !== ingredient
+    );
+
+    // Update the user document with the new favorites array
+    const updatedUser = await databases.updateDocument(
+      config.databaseId,
+      config.userCollectionId,
+      userId,
+      { favourites: updatedFavourites }
+    );
+
+    console.log("Ingredient removed from favorites.");
+    return updatedUser;
+  } catch (error) {
+    console.error("Failed to remove ingredient from favourites:", error);
+    throw new Error(error);
+  }
+};
+
+export const getFilePreview = async (fileId, type) => {
+  let fileUrl;
+  try {
+    if (type === "image") {
+      fileUrl = storage.getFilePreview(
+        config.storageId,
+        fileId,
+        1000,
+        1000,
+        "top",
+        100
+      );
+    } else {
+      throw new Error("Invalid file type");
+    }
+
+    if (!fileUrl) throw Error;
+
+    return fileUrl;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const uploadFile = async (file, type) => {
+  const asset = {
+    name: file.fileName,
+    type: file.mimeType,
+    size: file.fileSize,
+    uri: file.uri,
+  };
+
+  try {
+    const uploadedFile = await storage.createFile(
+      config.storageId,
+      ID.unique(),
+      asset
+    );
+    console.log("Uploaded file response:", uploadedFile);
+
+    if (!uploadedFile.$id) {
+      throw new Error(
+        "Uploaded file is undefined or does not have an $id property"
+      );
+    }
+
+    const fileUrl = await getFilePreview(uploadedFile.$id, type);
+
+    return fileUrl;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const createImage = async (form) => {
+  try {
+    const imageUrl = await Promise.all([uploadFile(form.image, "image")]);
+
+    const newPost = await databases.createDocument(
+      databaseId,
+      photoCollectionId,
+      ID.unique(),
+      {
+        image: imageUrl,
+        description: form.description,
+        creator: form.userId,
+      }
+    );
+
+    return newPost;
+  } catch (error) {
     throw new Error(error);
   }
 };

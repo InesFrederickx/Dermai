@@ -106,8 +106,8 @@ const SkinConcerns = () => {
                 position: "absolute",
                 top: `${item.position.top}%`,
                 left: `${item.position.left}%`,
-                width: 110,
-                height: 110,
+                width: 100,
+                height: 100,
               }}
             >
               <ImageBackground
@@ -119,11 +119,11 @@ const SkinConcerns = () => {
                     overflow: "visible",
                     justifyContent: "center",
                     alignItems: "center",
-                    opacity: selectedSkinConcerns.includes(item.name) ? 1 : 0.7, // Adjust opacity based on selection
+                    opacity: selectedSkinConcerns.includes(item.name) ? 1 : 0.5, // Adjust opacity based on selection
                   },
                   selectedSkinConcerns.includes(item.name) // Check if the item is selected
                     ? {
-                        shadowColor: "black",
+                        shadowColor: "beige",
                         shadowOffset: { width: 2, height: 2 },
                         shadowOpacity: 0.4,
                         shadowRadius: 3.84,

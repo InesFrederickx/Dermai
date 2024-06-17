@@ -12,7 +12,12 @@ import Modal from "react-native-modal";
 import { useState, useEffect, useRef } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images, icons, icons_animated } from "../../constants";
-import { getCurrentUser, updateData } from "../../library/appwrite";
+import {
+  getCurrentUser,
+  addIngredientToFavourites,
+  removeIngredientFromFavourites,
+  isIngredientFavourite,
+} from "../../library/appwrite";
 import { Player } from "@lordicon/react";
 import Chemical from "../../components/Chemical";
 import ingredients from "../../resources/ingredients.json";
@@ -35,12 +40,33 @@ const Products = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const userData = await getCurrentUser(); // Use the function to get user data
+      const userData = await getCurrentUser();
       setCurrentUser(userData);
     };
 
     fetchUserData();
   }, []);
+
+  useEffect(() => {
+    const checkIngredientFavourite = async () => {
+      if (selectedIngredient && currentUser && currentUser.$id) {
+        try {
+          const ingredientIsFavourite = await isIngredientFavourite(
+            currentUser.$id,
+            selectedIngredient.name
+          );
+          setIsStarSelected(ingredientIsFavourite);
+        } catch (error) {
+          console.error("Error checking if ingredient is favourite:", error);
+          setIsStarSelected(false);
+        }
+      } else {
+        setIsStarSelected(false);
+      }
+    };
+
+    checkIngredientFavourite();
+  }, [selectedIngredient, currentUser]);
 
   const skinConcerns = [
     "Acne",
@@ -522,15 +548,22 @@ const Products = () => {
                 <View className="flex-row items-center justify-center mt-5">
                   <TouchableOpacity
                     onPress={() => {
-                      setIsStarSelected(!isStarSelected);
-                      if (!isStarSelected && currentUser) {
-                        const newFavourites = currentUser.favourites
-                          ? [...currentUser.favourites, selectedIngredient.name]
-                          : [selectedIngredient.name];
-                        updateData(currentUser.$id, {
-                          favourites: newFavourites,
-                        });
+                      const ingredientName = selectedIngredient.name;
+                      if (isStarSelected && currentUser) {
+                        // If it's already a favourite, remove it from favourites
+                        removeIngredientFromFavourites(
+                          currentUser.$id,
+                          ingredientName
+                        );
+                      } else if (!isStarSelected && currentUser) {
+                        // If it's not a favourite, add it to favourites
+                        addIngredientToFavourites(
+                          currentUser.$id,
+                          ingredientName
+                        );
                       }
+                      // Toggle the star selection state
+                      setIsStarSelected(!isStarSelected);
                     }}
                   >
                     <Image
