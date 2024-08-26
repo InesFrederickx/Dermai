@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
-import { useGlobalContext } from "../../context/GlobalProvider";
-import { images } from "../../constants";
+import { useGlobalContext } from "../context/GlobalProvider";
+import { images } from "../constants";
 
 const Scan = () => {
   const navigation = useNavigation();

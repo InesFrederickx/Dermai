@@ -22,6 +22,7 @@ import difference from "../assets/icons/difference.png";
 import nomatch from "../assets/icons/nomatch.png";
 import upload from "../assets/icons/image.png";
 import camera from "../assets/icons/camera.png";
+import toner from "../assets/icons/toner.png";
 
 export default {
   home,
@@ -48,4 +49,5 @@ export default {
   nomatch,
   upload,
   camera,
+  toner,
 };

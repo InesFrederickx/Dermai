@@ -34,3 +34,15 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Ignore virtual environments
+myenv/
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore large data files
+data/

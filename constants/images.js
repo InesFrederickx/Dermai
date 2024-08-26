@@ -27,6 +27,14 @@ import oily from "../assets/images/skin_types/oily.png";
 import start from "../assets/images/start.png";
 import person from "../assets/images/person.jpg";
 import ine from "../assets/images/ine.jpg";
+import ClearGlowAHASerum from "../assets/images/ClearGlowAHASerum.png";
+import SmoothBrightBHACleanser from "../assets/images/SmoothBrightBHACleanser.png";
+import HydraRevivePHAEssence from "../assets/images/HydraRevivePHAEssence.png";
+import RetinolRadianceNightCream from "../assets/images/RetinolRadianceNightCream.png";
+import ClearDefenseSalicylicToner from "../assets/images/ClearDefenseSalicylicToner.png";
+import BrightClearGlycolicSerum from "../assets/images/BrightClearGlycolicSerum.png";
+import MatteBalanceClayMask from "../assets/images/MatteBalanceClayMask.png";
+import MoistureLockArganOilCream from "../assets/images/MoistureLockArganOilCream.png";
 
 export default {
   gradientBackground,
@@ -58,4 +66,12 @@ export default {
   start,
   person,
   ine,
+  ClearGlowAHASerum,
+  SmoothBrightBHACleanser,
+  HydraRevivePHAEssence,
+  RetinolRadianceNightCream,
+  ClearDefenseSalicylicToner,
+  BrightClearGlycolicSerum,
+  MatteBalanceClayMask,
+  MoistureLockArganOilCream,
 };

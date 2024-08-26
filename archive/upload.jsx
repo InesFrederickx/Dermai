@@ -12,16 +12,16 @@ import {
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ResizeMode } from "expo-av";
-import FormField from "../../components/FormField";
-import CustomButton from "../../components/CustomButton";
-import { icons } from "../../constants";
+import FormField from "../components/FormField";
+import CustomButton from "../components/CustomButton";
+import { icons } from "../constants";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as ImagePicker from "expo-image-picker";
 import * as DocumentPicker from "expo-document-picker";
 import Toast from "react-native-toast-message";
 import { router } from "expo-router";
-import { createImage } from "../../library/appwrite";
-import { useGlobalContext } from "../../context/GlobalProvider";
+import { createImage } from "../library/appwrite";
+import { useGlobalContext } from "../context/GlobalProvider";
 
 const Upload = () => {
   const { user } = useGlobalContext();

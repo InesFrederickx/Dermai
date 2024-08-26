@@ -510,13 +510,13 @@ const Products = () => {
                             .includes(search.toLowerCase())
                         : true
                     )
-              ).map((ingredient) => (
+              ).map((ingredient, index) => (
                 <Chemical
                   key={ingredient.name}
-                  source={images[ingredient.image]}
                   title={ingredient.name}
                   text={ingredient.properties}
                   onPress={() => handleChemicalPress(ingredient)}
+                  index={index}
                 />
               ))}
             </View>

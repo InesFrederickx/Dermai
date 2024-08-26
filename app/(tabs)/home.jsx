@@ -16,6 +16,7 @@ import Chemical from "../../components/Chemical";
 import Modal from "react-native-modal";
 import TipsAndTricks from "../../components/TipsAndTricks";
 import ingredients from "../../resources/ingredients.json";
+import Chatbot from "../../services/chatbotService";
 
 const Home = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -561,7 +562,7 @@ const Home = () => {
                 return (
                   <Chemical
                     key={index}
-                    source={images[ingredient.image]}
+                    index={index}
                     title={ingredient.name}
                     text={ingredient.properties}
                   />

@@ -67,21 +67,11 @@ const TabsLayout = () => {
         />
 
         <Tabs.Screen
-          name="upload"
+          name="catalog"
           options={{
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon icon={icons.camera} color={color} focused={focused} />
-            ),
-          }}
-        />
-
-        <Tabs.Screen
-          name="scan"
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon icon={icons.upload} color={color} focused={focused} />
+              <TabIcon icon={icons.toner} color={color} focused={focused} />
             ),
           }}
         />

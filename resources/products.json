@@ -1,0 +1,150 @@
+[
+  {
+    "title": "Clear Glow AHA Serum",
+    "product_type": "Exfoliating Serum",
+    "key_ingredients": [
+      "AHA (Alpha Hydroxy Acid)",
+      "Vitamin C",
+      "Hyaluronic Acid"
+    ],
+    "description": "Clear Glow AHA Serum is designed to renew your skin's radiance by gently exfoliating dead skin cells while boosting collagen production. With the added benefits of Vitamin C for brightening and Hyaluronic Acid for hydration, this serum targets dark spots and uneven texture, leaving your skin smooth and luminous.",
+    "ingredient_list": [
+      "Water",
+      "AHA",
+      "Sodium Hyaluronate",
+      "Ascorbic Acid",
+      "Glycerin",
+      "Propanediol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin"
+    ],
+    "image": "ClearGlowAHASerum.png"
+  },
+  {
+    "title": "Smooth & Bright BHA Cleanser",
+    "product_type": "Exfoliating Cleanser",
+    "key_ingredients": [
+      "BHA (Beta Hydroxy Acid)",
+      "Salicylic Acid",
+      "Niacinamide"
+    ],
+    "description": "Smooth & Bright BHA Cleanser unclogs pores and removes impurities deep within the skin. This gentle yet effective formula combines the exfoliating power of BHA with Salicylic Acid to combat acne and Niacinamide to brighten and smooth your complexion.",
+    "ingredient_list": [
+      "Water",
+      "BHA",
+      "Salicylic Acid",
+      "Niacinamide",
+      "Cocamidopropyl Betaine",
+      "Glycerin",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Fragrance"
+    ],
+    "image": "SmoothBrightBHACleanser.png"
+  },
+  {
+    "title": "Hydra-Revive PHA Essence",
+    "product_type": "Hydrating Essence",
+    "key_ingredients": ["PHA (Poly Hydroxy Acid)", "Panthenol", "Vitamin E"],
+    "description": "Hydra-Revive PHA Essence is a gentle exfoliating essence that hydrates and restores your skin's moisture barrier. Infused with PHA for light exfoliation, Panthenol for hydration, and Vitamin E for smoothing, it’s perfect for sensitive and dehydrated skin.",
+    "ingredient_list": [
+      "Water",
+      "PHA",
+      "Panthenol",
+      "Tocopheryl Acetate",
+      "Glycerin",
+      "Butylene Glycol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin"
+    ],
+    "image": "HydraRevivePHAEssence.png"
+  },
+  {
+    "title": "Retinol Radiance Night Cream",
+    "product_type": "Anti-Aging Night Cream",
+    "key_ingredients": ["Retinol", "Hyaluronic Acid", "Vitamin C"],
+    "description": "Retinol Radiance Night Cream fights signs of aging while you sleep. Retinol boosts collagen production and smooths fine lines, while Hyaluronic Acid hydrates, and Vitamin C brightens your complexion. Wake up to youthful, radiant skin.",
+    "ingredient_list": [
+      "Water",
+      "Retinol",
+      "Sodium Hyaluronate",
+      "Ascorbic Acid",
+      "Glycerin",
+      "Cetearyl Alcohol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Fragrance"
+    ],
+    "image": "RetinolRadianceNightCream.png"
+  },
+  {
+    "title": "Clear Defense Salicylic Toner",
+    "product_type": "Clarifying Toner",
+    "key_ingredients": ["Salicylic Acid", "Niacinamide", "Hyaluronic Acid"],
+    "description": "Clear Defense Salicylic Toner helps reduce acne and excess oil while minimizing pores. Salicylic Acid and Niacinamide work together to unclog pores and brighten skin, while Hyaluronic Acid ensures it remains hydrated and plump.",
+    "ingredient_list": [
+      "Water",
+      "Salicylic Acid",
+      "Niacinamide",
+      "Sodium Hyaluronate",
+      "Glycerin",
+      "Butylene Glycol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin"
+    ],
+    "image": "ClearDefenseSalicylicToner.png"
+  },
+  {
+    "title": "Bright & Clear Glycolic Serum",
+    "product_type": "Exfoliating Serum",
+    "key_ingredients": ["Glycolic Acid", "Vitamin C", "Hyaluronic Acid"],
+    "description": "Bright & Clear Glycolic Serum offers gentle exfoliation to brighten your skin. Glycolic Acid dissolves dead skin cells, while Vitamin C lightens dark spots, and Hyaluronic Acid ensures your skin stays hydrated and smooth.",
+    "ingredient_list": [
+      "Water",
+      "Glycolic Acid",
+      "Sodium Hyaluronate",
+      "Ascorbic Acid",
+      "Glycerin",
+      "Propylene Glycol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin"
+    ],
+    "image": "BrightClearGlycolicSerum.png"
+  },
+  {
+    "title": "Matte Balance Clay Mask",
+    "product_type": "Purifying Clay Mask",
+    "key_ingredients": ["Clay", "Niacinamide", "Salicylic Acid"],
+    "description": "Matte Balance Clay Mask absorbs excess oil and impurities while minimizing the appearance of pores. The combination of Clay and Salicylic Acid clears out blackheads, and Niacinamide smooths and brightens your skin for a matte finish.",
+    "ingredient_list": [
+      "Water",
+      "Kaolin Clay",
+      "Niacinamide",
+      "Salicylic Acid",
+      "Glycerin",
+      "Bentonite",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Fragrance"
+    ],
+    "image": "MatteBalanceClayMask.png"
+  },
+  {
+    "title": "Moisture Lock Argan Oil Cream",
+    "product_type": "Moisturizing Cream",
+    "key_ingredients": ["Argan Oil", "Vitamin E", "Panthenol"],
+    "description": "Moisture Lock Argan Oil Cream provides deep hydration for dry and sensitive skin. Argan Oil nourishes and moisturizes, while Vitamin E and Panthenol repair and protect your skin’s moisture barrier, leaving it soft and smooth.",
+    "ingredient_list": [
+      "Water",
+      "Argan Oil",
+      "Panthenol",
+      "Tocopheryl Acetate",
+      "Glycerin",
+      "Cetearyl Alcohol",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Fragrance"
+    ],
+    "image": "MoistureLockArganOilCream.png"
+  }
+]
