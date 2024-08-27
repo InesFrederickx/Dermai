@@ -7,7 +7,8 @@ Do you want to educate yourself on what ingredients to search for when buying pr
 - **Personalized profile:** You can customize your profile by selecting your skin type and skin concerns. This will give you personalized recommendations.
 - **Homepage:** Here you can find your personalized recommendations and some handy tips&tricks!
 - **Ingredients:** On this page you can all the ingredients Dermai currently has to offer. You can further click on them to get all the information.
-- **Gallery:** Take a picture or upload one, select what ingredients you're currently using, give a description and save! That's how you can keep track of your progress with using certain ingredients.
+- **Catalog:** Here you can find made-up products with a complete ingredient list.
+- **AI Chatbot:** In the corner of your screen you can find your little AI assistant, DermAI! They can help you with specific questions about ingredients.
 - **Profile page:** Here you can change your profile's information.
 
 ## Guide to running the app through Visual Studio Code
@@ -32,3 +33,4 @@ Do you want to educate yourself on what ingredients to search for when buying pr
 Followed this tutorial for implementation of all of my technologies: https://youtu.be/ZBCUegTZF7M?si=FBgKg3js60nt3opO<br/>
 Date picker for Expo tutorial: https://youtu.be/UEfFjfW7Zes?si=B8zrjGK0GZhoH9z9<br/>
 All the information for ingredients, skin type and combinations of the previous: https://github.com/nic-pan/skincare-ingredients<br/>
+For setting up and training my Dialogflow CX Google AI model: https://cloud.google.com/dialogflow/cx/docs<br/>
