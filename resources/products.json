@@ -18,7 +18,11 @@
       "Phenoxyethanol",
       "Ethylhexylglycerin"
     ],
-    "image": "ClearGlowAHASerum.png"
+    "image": "ClearGlowAHASerum.png",
+    "skinTypes": ["Normal", "Dry", "Combination", "Dehydrated"],
+    "skinTypesBad": ["Sensitive", "Acne-prone"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Acne", "Greasiness"]
   },
   {
     "title": "Smooth & Bright BHA Cleanser",
@@ -40,7 +44,11 @@
       "Ethylhexylglycerin",
       "Fragrance"
     ],
-    "image": "SmoothBrightBHACleanser.png"
+    "image": "SmoothBrightBHACleanser.png",
+    "skinTypes": ["Normal", "Acne-prone", "Combination", "Oily", "Sensitive"],
+    "skinTypesBad": ["Dehydrated", "Dry"],
+    "skinConcerns": ["Acne", "Dark spots", "Texture", "Rosacea", "Greasiness"],
+    "skinConcernsBad": ["Dryness", "Eczema"]
   },
   {
     "title": "Hydra-Revive PHA Essence",
@@ -57,7 +65,19 @@
       "Phenoxyethanol",
       "Ethylhexylglycerin"
     ],
-    "image": "HydraRevivePHAEssence.png"
+    "image": "HydraRevivePHAEssence.png",
+    "skinTypes": [
+      "Normal",
+      "Oily",
+      "Dry",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone",
+      "Sensitive"
+    ],
+    "skinTypesBad": ["None"],
+    "skinConcerns": ["Dryness", "Texture", "Eczema", "Dark spots", "Rosacea"],
+    "skinConcernsBad": ["None"]
   },
   {
     "title": "Retinol Radiance Night Cream",
@@ -75,7 +95,11 @@
       "Ethylhexylglycerin",
       "Fragrance"
     ],
-    "image": "RetinolRadianceNightCream.png"
+    "image": "RetinolRadianceNightCream.png",
+    "skinTypes": ["Normal", "Oily", "Combination", "Acne-prone"],
+    "skinTypesBad": ["Sensitive", "Dry", "Dehydrated"],
+    "skinConcerns": ["Dark spots", "Texture", "Acne"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Dryness", "Dehydration"]
   },
   {
     "title": "Clear Defense Salicylic Toner",
@@ -92,7 +116,11 @@
       "Phenoxyethanol",
       "Ethylhexylglycerin"
     ],
-    "image": "ClearDefenseSalicylicToner.png"
+    "image": "ClearDefenseSalicylicToner.png",
+    "skinTypes": ["Oily", "Acne-prone", "Combination", "Normal"],
+    "skinTypesBad": ["Sensitive", "Dry", "Dehydrated"],
+    "skinConcerns": ["Dark spots", "Texture", "Acne", "Greasiness"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Dryness"]
   },
   {
     "title": "Bright & Clear Glycolic Serum",
@@ -109,7 +137,18 @@
       "Phenoxyethanol",
       "Ethylhexylglycerin"
     ],
-    "image": "BrightClearGlycolicSerum.png"
+    "image": "BrightClearGlycolicSerum.png",
+    "skinTypes": [
+      "Normal",
+      "Oily",
+      "Dry",
+      "Combination",
+      "Dehydrated",
+      "Acne-prone"
+    ],
+    "skinTypesBad": ["Sensitive"],
+    "skinConcerns": ["Dark spots", "Texture", "Dryness"],
+    "skinConcernsBad": ["Eczema", "Rosacea"]
   },
   {
     "title": "Matte Balance Clay Mask",
@@ -127,7 +166,11 @@
       "Ethylhexylglycerin",
       "Fragrance"
     ],
-    "image": "MatteBalanceClayMask.png"
+    "image": "MatteBalanceClayMask.png",
+    "skinTypes": ["Combination", "Oily", "Acne-prone", "Normal"],
+    "skinTypesBad": ["Dry", "Sensitive"],
+    "skinConcerns": ["Dark spots", "Texture", "Acne"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Greasiness"]
   },
   {
     "title": "Moisture Lock Argan Oil Cream",
@@ -145,6 +188,10 @@
       "Ethylhexylglycerin",
       "Fragrance"
     ],
-    "image": "MoistureLockArganOilCream.png"
+    "image": "MoistureLockArganOilCream.png",
+    "skinTypes": ["Normal", "Dry", "Combination", "Sensitive", "Dehydrated"],
+    "skinTypesBad": ["Oily", "Acne-prone"],
+    "skinConcerns": ["Sensitive", "Texture", "Dryness", "Dark spots"],
+    "skinConcernsBad": ["Eczema", "Rosacea", "Greasiness"]
   }
 ]

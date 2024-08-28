@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TextInput,
   TouchableWithoutFeedback,
+  StyleSheet, // Added for custom styling
 } from "react-native";
 import Modal from "react-native-modal";
 import { useState, useEffect, useRef } from "react";
@@ -21,6 +22,7 @@ import {
 import { Player } from "@lordicon/react";
 import Chemical from "../../components/Chemical";
 import ingredients from "../../resources/ingredients.json";
+import Chatbot from "../../services/chatbotService";
 
 const Products = () => {
   const [search, setSearch] = useState("");
@@ -37,6 +39,7 @@ const Products = () => {
   const [selectedProperties, setSelectedProperties] = useState([]);
   const [isOpenProperties, setIsOpenProperties] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isChatbotVisible, setChatbotVisible] = useState(false); // State to control chatbot visibility
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -98,6 +101,7 @@ const Products = () => {
     "Moisturizing",
     "Smoothing",
   ];
+
   const handleChemicalPress = (ingredient) => {
     setSelectedIngredient(ingredient);
     setModalVisible(true);
@@ -105,18 +109,14 @@ const Products = () => {
 
   const handleSkinTypeSelect = (skinTypes) => {
     setSelectedSkinTypes((prevSelectedSkinTypes) => {
-      // Create a new array that includes all previously selected skin types
       let newSelectedSkinTypes = [...prevSelectedSkinTypes];
 
-      // For each skin type that we want to select
       for (let skinType of skinTypes) {
         if (prevSelectedSkinTypes.includes(skinType)) {
-          // If the skin type is already selected, deselect it
           newSelectedSkinTypes = newSelectedSkinTypes.filter(
             (type) => type !== skinType
           );
         } else {
-          // If the skin type is not selected, select it
           newSelectedSkinTypes.push(skinType);
         }
       }
@@ -124,12 +124,21 @@ const Products = () => {
       return newSelectedSkinTypes;
     });
   };
+
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
 
   const toggleLegendModal = () => {
     setLegendModalVisible(!legendModalVisible);
+  };
+
+  const openChatbot = () => {
+    setChatbotVisible(true);
+  };
+
+  const closeChatbot = () => {
+    setChatbotVisible(false);
   };
 
   return (
@@ -550,19 +559,16 @@ const Products = () => {
                     onPress={() => {
                       const ingredientName = selectedIngredient.name;
                       if (isStarSelected && currentUser) {
-                        // If it's already a favourite, remove it from favourites
                         removeIngredientFromFavourites(
                           currentUser.$id,
                           ingredientName
                         );
                       } else if (!isStarSelected && currentUser) {
-                        // If it's not a favourite, add it to favourites
                         addIngredientToFavourites(
                           currentUser.$id,
                           ingredientName
                         );
                       }
-                      // Toggle the star selection state
                       setIsStarSelected(!isStarSelected);
                     }}
                   >
@@ -642,9 +648,67 @@ const Products = () => {
             </ScrollView>
           </View>
         </Modal>
+
+        {/* Chatbot Button and Modal */}
+        <Modal
+          isVisible={isChatbotVisible}
+          onBackdropPress={closeChatbot}
+          swipeDirection="down"
+          onSwipeComplete={closeChatbot}
+          style={styles.chatbotModal}
+        >
+          <View style={styles.chatbotContainer}>
+            <Chatbot />
+          </View>
+        </Modal>
       </ScrollView>
+
+      <TouchableOpacity style={styles.chatbotButton} onPress={openChatbot}>
+        <Image source={icons.chatbot} style={styles.chatbotIcon} />
+      </TouchableOpacity>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  chatbotButton: {
+    position: "absolute",
+    bottom: 20,
+    right: 20,
+    width: 60,
+    height: 60,
+    backgroundColor: "#f57c00",
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+    zIndex: 1000,
+  },
+  chatbotIcon: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+  },
+  chatbotModal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  chatbotContainer: {
+    height: "60%",
+    backgroundColor: "#fff",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+});
 
 export default Products;

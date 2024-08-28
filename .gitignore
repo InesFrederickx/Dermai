@@ -46,3 +46,6 @@ __pycache__/
 
 # Ignore large data files
 data/
+
+
+/dermai-433712-6ecec4f34246.json

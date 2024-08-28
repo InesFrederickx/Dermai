@@ -23,6 +23,7 @@ import nomatch from "../assets/icons/nomatch.png";
 import upload from "../assets/icons/image.png";
 import camera from "../assets/icons/camera.png";
 import toner from "../assets/icons/toner.png";
+import chatbot from "../assets/icons/chatbot.png";
 
 export default {
   home,
@@ -50,4 +51,5 @@ export default {
   upload,
   camera,
   toner,
+  chatbot,
 };
