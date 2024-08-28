@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "package": "com.dippsauce.dermai"
@@ -22,7 +24,10 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dippsauce.dermai"
+      "package": "com.dippsauce.dermai",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -50,6 +55,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/51bcd87b-fb3a-41af-ae8f-7225163019a9"
-    }
+    },
+    "owner": "dippsauce"
   }
 }

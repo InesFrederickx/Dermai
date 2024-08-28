@@ -28,7 +28,7 @@ const Chatbot = () => {
         headers: {
           Authorization: `Bearer ${DIALOGFLOW_OAUTH2_TOKEN}`,
           "Content-Type": "application/json",
-          "x-goog-user-project": "your-project-id",
+          "x-goog-user-project": "dermai-433712",
         },
         body: JSON.stringify({
           queryInput: {
